@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Purple Theme Table</title>
+    <link rel="stylesheet" href="table_css.css">
+</head>
+<body>
+    <div class="table-container">
+        <div class="table-header">
+            <h2>Users Management</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Search users..." class="search-input">
+            </div>
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Last Login</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sarah Wilson</td>
+                        <td>sarah.wilson@example.com</td>
+                        <td>Administrator</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td>2024-02-04 09:45 AM</td>
+                        <td>
+                            <button class="action-button edit-button">Edit</button>
+                            <button class="action-button delete-button">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Michael Brown</td>
+                        <td>michael.b@example.com</td>
+                        <td>Editor</td>
+                        <td><span class="status-badge status-pending">Pending</span></td>
+                        <td>2024-02-03 03:22 PM</td>
+                        <td>
+                            <button class="action-button edit-button">Edit</button>
+                            <button class="action-button delete-button">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Emily Davis</td>
+                        <td>emily.davis@example.com</td>
+                        <td>Viewer</td>
+                        <td><span class="status-badge status-inactive">Inactive</span></td>
+                        <td>2024-02-01 11:30 AM</td>
+                        <td>
+                            <button class="action-button edit-button">Edit</button>
+                            <button class="action-button delete-button">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            <div class="page-info">
+                Showing 1 to 3 of 12 entries
+            </div>
+            <div class="page-buttons">
+                <button class="page-button">Previous</button>
+                <button class="page-button active">1</button>
+                <button class="page-button">2</button>
+                <button class="page-button">3</button>
+                <button class="page-button">Next</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
