@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Daycare - Dashboard Anak</title>
+    <style>
+        :root {
+            --primary-color: #4a148c;
+            --secondary-color: #673ab7;
+            --light-grey: #f0f0f0;
+            --dark-grey: #333333;
+            --white: #ffffff;
+            --red: #e53935;
+            --green: #4CAF50;
+            --blue: #3f51b5;
+            --light-blue: #5c6bc0;
+            --dark-blue: #303f9f;
+            --health-blue: #5c6bc0;
+            --note-blue: #7986cb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: var(--dark-grey);
+        }
+        
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+            
+        .main-content {
+            flex: 1;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dashboard-container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        .left-panel {
+            width: 250px;
+            background: linear-gradient(160deg, var(--primary-color) 60%, var(--light-grey) 60%);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .dashboard-title {
+            color: var(--white);
+            padding: 20px 0;
+        }
+        
+        .dashboard-title h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .dashboard-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+        }
+        
+        .admin-btn {
+            background-color: var(--green);
+            color: var(--white);
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .logout-btn {
+            background-color: var(--red);
+            color: var(--white);
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .right-panel {
+            flex: 1;
+            padding: 0;
+            background-color: var(--white);
+        }
+        
+        .update-header {
+            background-color: var(--white);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .update-title {
+            background-color: var(--light-grey);
+            padding: 10px 15px;
+            width: 100%;
+        }
+        
+        .update-form {
+            padding: 20px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 100px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            padding: 5px 10px;
+            background-color: var(--light-grey);
+            border: none;
+        }
+        
+        .divider {
+            height: 1px;
+            background-color: var(--light-grey);
+            margin: 20px 0;
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .category-card {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 15px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .category-icon {
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .category-card.toilet {
+            background-color: var(--light-blue);
+        }
+        
+        .category-card.health {
+            background-color: var(--health-blue);
+        }
+        
+        .category-card.notes {
+            background-color: var(--note-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar"></div>
+        <div class="main-content">
+            <div class="dashboard-container">
+                <div class="left-panel">
+                    <div class="dashboard-title">
+                        <h1>Dashboard</h1>
+                        <h1>Anak</h1>
+                    </div>
+                    
+                    <div class="dashboard-buttons">
+                        <button class="admin-btn">
+                            <span>👤</span> Dashboard Admin
+                        </button>
+                        <button class="logout-btn">
+                            <span>↪</span> Keluar
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="right-panel">
+                    <div class="update-header">
+                        <span style="font-size: 24px;">👤</span>
+                        <h2>Update status anak</h2>
+                    </div>
+                    
+                    <div class="update-title">
+                        Dashboard Anak / Update
+                    </div>
+                    
+                    <div class="update-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>
+                                    <span style="font-size: 20px;">👤</span>
+                                    Nama Anak
+                                </label>
+                                <div>Faris</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>
+                                    <span style="font-size: 20px;">📅</span>
+                                    Tanggal
+                                </label>
+                                <input type="text" value="12-02-2025">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <span style="font-size: 20px;">👤</span>
+                                Nama Pendamping
+                            </label>
+                            <input type="text" value="Erista Chelly" style="background-color: #eee;">
+                        </div>
+                    </div>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="categories">
+                        <div class="category-card">
+                            <div class="category-icon">🍽️</div>
+                            <div>
+                                Menu<br>
+                                Makan &<br>
+                                Camilan
+                            </div>
+                        </div>
+                        
+                        <div class="category-card toilet">
+                            <div class="category-icon">🚽</div>
+                            <div>
+                                Buang Air<br>
+                                Kecil & Air<br>
+                                Besar
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">🍼</div>
+                            <div>
+                                Air Putih<br>
+                                & Susu
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">🏠</div>
+                            <div>
+                                Kegiatan<br>
+                                Indoor &<br>
+                                Outdoor
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">💊</div>
+                            <div>
+                                Obat
+                            </div>
+                        </div>
+                        
+                        <div class="category-card toilet">
+                            <div class="category-icon">🛏️</div>
+                            <div>
+                                Tidur
+                            </div>
+                        </div>
+                        
+                        <div class="category-card health">
+                            <div class="category-icon">❤️</div>
+                            <div>
+                                Kondisi<br>
+                                Kesehatan
+                            </div>
+                        </div>
+                        
+                        <div class="category-card notes">
+                            <div class="category-icon">📝</div>
+                            <div>
+                                Keterangan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
