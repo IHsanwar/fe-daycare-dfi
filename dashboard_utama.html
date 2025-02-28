@@ -3,303 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Anak</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
+    <title>Dashboard Anak</title> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    colors: {
+                        'purple-deep': '#4B0082',
+                        'purple-light': '#6A5ACD',
+                        'purple-dark': '#483D8B'
+                    }
+                }
+            }
         }
-
-        body {
-            display: flex;
-            background-color: #f5f5f5;
-        }
-
-        .sidebar {
-            width: 250px;
-            background-color: #fff;
-            height: 100vh;
-            padding: 20px;
-        }
-
-        .dashboard-header {
-            background-color: #4B0082;
-            color: white;
-            padding: 20px;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
-            height: 100px;
-            margin-bottom: 20px;
-        }
-
-        .sidebar-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .menu-item {
-            padding: 10px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .logout {
-            margin-top: auto;
-            padding: 10px;
-            color: #666;
-            cursor: pointer;
-            position: absolute;
-            bottom: 20px;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 20px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .search-box {
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 200px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        th {
-            background-color: #f0f0f0;
-            padding: 12px;
-            text-align: left;
-        }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 8px;
-        }
-
-        .btn {
-            padding: 6px 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            color: white;
-            font-size: 12px;
-        }
-
-        .btn-status {
-            background-color: #4B0082;
-        }
-
-        .btn-info {
-            background-color: #6A5ACD;
-        }
-
-        .btn-update {
-            background-color: #483D8B;
-        }
-
-        .btn-delete {
-            background-color: #4B0082;
-        }
-
-        .status-incomplete {
-            background-color: #ff4444;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-
-        .status-complete {
-            background-color: #00C851;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-
-        
-        /* Tombol dashboard utama */
-        .open-modal {
-            background-color: #4B0082;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        /* Modal (pop-up) */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--modal-bg);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #6A5ACD;
-            padding: 20px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            text-align: left;
-            position: relative;
-        }
-
-        /* Tombol close */
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .header {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .info-list {
-            list-style-type: none;
-            padding-left: 0;
-            font-size: 14px;
-        }
-
-        .info-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-    </style>
+    </script>
 </head>
-<body>
-    <div class="sidebar">
-        <div class="dashboard-header">
-            <h2>Dashboard</h2>
+<body class="font-poppins bg-gray-100">
+    <div class="flex flex-col md:flex-row min-h-screen relative">
+        <div class="md:hidden fixed top-4 left-4 z-30">
+            <button id="menuToggle" class="bg-purple-deep text-white p-2 rounded-md">☰</button>
         </div>
-        <div class="sidebar-menu">
-            <div class="menu-item"></div>
-            <div class="menu-item"></div>
-            <div class="menu-item"></div>
-            <div class="menu-item"></div>
-            <div class="menu-item"></div>
+
+        <div id="sidebar" class="w-full md:w-64 bg-white md:h-screen p-5 fixed md:relative z-20 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+            <div class="bg-purple-deep text-white p-5 mb-5 h-24 flex items-center rounded">
+                <h2 class="text-xl font-semibold">Dashboard Anak</h2>
+            </div>
+            <div class="flex flex-col gap-4">
+                <button class="p-2.5 text-xl bg-purple-400 text-white rounded hover:bg-black">Dashboard User</button>
+                <button class="p-2.5 bg-gray-100 rounded hover:bg-gray-200">Menu Item 1</button>
+                <button class="p-2.5 bg-gray-100 rounded hover:bg-gray-200">Menu Item 2</button>
+            </div>
+            <button class="p-2.5 text-white bg-red-700 mt-4 hover:text-black hover:bg-red-300 w-full rounded text-center">Logout</button>
         </div>
-        <div class="logout">Logout</div>
+
+        <div class="flex-1 p-4 md:p-5 pt-16 md:pt-5">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
+                <h2 class="text-xl font-semibold">Data Anak</h2>
+                <input type="text" placeholder="Cari nama anak..." class="p-2 border border-gray-300 rounded w-full md:w-52">
+            </div>
+
+            <div class="overflow-x-auto bg-white rounded-lg shadow">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-200">
+                            <th class="p-3 text-left">Nama Anak</th>
+                            <th class="p-3 text-left">Nama Orang tua</th>
+                            <th class="p-3 text-left">Tanggal</th>
+                            <th class="p-3 text-left">Status</th>
+                            <th class="p-3 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-3">Haikal</td>
+                            <td class="p-3">Ibu Jane Doe</td>
+                            <td class="p-3">10 Feb 2025</td>
+                            <td class="p-3">
+                                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">belum lengkap</span>
+                            </td>
+                            <td class="p-3 flex gap-2">
+                                <button class="px-3 py-1.5 bg-purple-deep text-white text-xs rounded hover:bg-opacity-90">Update</button>
+                                <button class="px-3 py-1.5 bg-purple-light text-white text-xs rounded hover:bg-opacity-90" onclick="openModal()">Info</button>
+                                <button class="px-3 py-1.5 bg-purple-dark text-white text-xs rounded hover:bg-opacity-90" onclick="openEditModal()">Edit</button>
+                                <button class="px-3 py-1.5 bg-red-400 text-white text-xs rounded hover:bg-opacity-90">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-100 bg-gray-100">
+                            <td class="p-3">Evelyn</td>
+                            <td class="p-3">Mama Yuli</td>
+                            <td class="p-3">10 Feb 2025</td>
+                            <td class="p-3">
+                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">sudah lengkap</span>
+                            </td>
+                            <td class="p-3 flex gap-2">
+                                <button class="px-3 py-1.5 bg-purple-deep text-white text-xs rounded hover:bg-opacity-90">Update</button>
+                                <button class="px-3 py-1.5 bg-purple-light text-white text-xs rounded hover:bg-opacity-90" onclick="openModal()">Info</button>
+                                <button class="px-3 py-1.5 bg-purple-dark text-white text-xs rounded hover:bg-opacity-90" onclick="openEditModal()">Edit</button>
+                                <button class="px-3 py-1.5 bg-red-400 text-white text-xs rounded hover:bg-opacity-90">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
-    <div class="main-content">
-        <div class="header">
-            <h2>Daftar Anak</h2>
-            <input type="text" placeholder="Cari nama anak..." class="search-box">
-        </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Nama Anak</th>
-                    <th>Nama Orang tua</th>
-                    <th>Tanggal</th>
-                    <th>Status Pengisian</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Haikal</td>
-                    <td>Ibu Jane Doe</td>
-                    <td>10 Feb 2025</td>
-                    <td><span class="status-incomplete">belum lengkap</span></td>
-                    <td>
-                        <div class="action-buttons">
-                            <button class="btn btn-status">Update Status</button>
-                            <button class="btn open-modal" onclick="openModal()">Informasi Anak</button>
-                            <button class="btn btn-update">Update</button>
-                            <button class="btn btn-delete">Hapus</button>
-                        </div>
-                    </td>
-                </tr>
-                <!-- More rows would go here -->
-            </tbody>
-
-            
-    <!-- Tombol di dashboard utama -->
-    <button class="open-modal" onclick="openModal()">Lihat Informasi Anak</button>
-
-    <!-- Modal Pop-up -->
-    <div id="infoModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div class="header">Informasi Tentang Evelyn Castorice</div>
-            <ul class="info-list">
-                <li><strong>Tanggal:</strong> 14/02/2025</li>
-                <li><strong>Makan Pagi:</strong> 1/2 porsi (Bubur Ayam)</li>
-                <li><strong>Makan Siang:</strong> 1/3 porsi (Nasi, Sayur, Ayam Goreng)</li>
-                <li><strong>Makan Sore:</strong> 1/4 porsi (Nasi Goreng Ayam Bakso)</li>
-                <li><strong>Camilan:</strong> Es Krim, Biskuit, Donat</li>
-                <li><strong>Air Putih:</strong> 200ml pagi, 200ml siang, 200ml sore</li>
-                <li><strong>Susu:</strong> 200ml pagi, 200ml siang, 200ml sore</li>
-                <li><strong>Buang Air Besar:</strong> 2× pagi, 1× siang, 1× sore</li>
-                <li><strong>Buang Air Kecil:</strong> 2× pagi, 3× siang, 1× sore</li>
-                <li><strong>Kegiatan Indoor:</strong> Bermain Bebas, Belajar Motorik, Belajar Sensorik</li>
-                <li><strong>Kegiatan Outdoor:</strong> Tidak ada</li>
-                <li><strong>Tidur:</strong> 2× pagi, 1× siang, 1× sore</li>
+    <div id="infoModal" class="fixed inset-0 hidden bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+        <div class="bg-white p-5 w-11/12 max-w-lg shadow-lg rounded-lg text-left relative max-h-90vh overflow-y-auto">
+            <button class="absolute top-2 right-3 text-xl cursor-pointer bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-550 hover:bg-opacity-50  ease-in-out " onclick="closeModal()">×</button>
+            <div class="text-lg font-bold mb-2.5 text-black">Informasi Tentang Evelyn Castorice</div>
+            <ul class="list-none p-0 text-sm text-black">
+                <li class="py-2 border-b border-gray-200"><strong>Tanggal:</strong> 14/02/2025</li>
+                <li class="py-2 border-b border-gray-200"><strong>Makan Pagi:</strong> 1/2 porsi (Bubur Ayam)</li>
+                <li class="py-2 border-b border-gray-200"><strong>Makan Siang:</strong> 1/3 porsi (Nasi, Sayur, Ayam Goreng)</li>
+                <li class="py-2 border-b border-gray-200"><strong>Makan Sore:</strong> 1/4 porsi (Nasi Goreng Ayam Bakso)</li>
+                <li class="py-2 border-b border-gray-200"><strong>Camilan:</strong> Es Krim, Biskuit, Donat</li>
+                <li class="py-2 border-b border-gray-200"><strong>Air Putih:</strong> 200ml pagi, 200ml siang, 200ml sore</li>
+                <li class="py-2 border-b border-gray-200"><strong>Susu:</strong> 200ml pagi, 200ml siang, 200ml sore</li>
+                <li class="py-2 border-b border-gray-200"><strong>Buang Air Besar:</strong> 2× pagi, 1× siang, 1× sore</li>
+                <li class="py-2 border-b border-gray-200"><strong>Buang Air Kecil:</strong> 2× pagi, 3× siang, 1× sore</li>
+                <li class="py-2 border-b border-gray-200"><strong>Kegiatan Indoor:</strong> Bermain Bebas, Belajar Motorik, Belajar Sensorik</li>
+                <li class="py-2 border-b border-gray-200"><strong>Kegiatan Outdoor:</strong> Tidak ada</li>
+                <li class="py-2"><strong>Tidur:</strong> 2× pagi, 1× siang, 1× sore</li>
+                <li class="py-2 border-b border-gray-200"><strong>Catatan:</strong> <i class="bg-gray-200 p-2 rounded-md"> Catatan disini panjang sekali bayangkan jika... </i></li>
+                <li>
+                <button type="submit" class="bg-purple-deep text-white px-4 py-2 rounded mt-4 transition duration-550 hover:bg-opacity-70">Download Data</button></li>
             </ul>
         </div>
     </div>
 
-        </table>
+    <div id="editModal" class="fixed inset-0 hidden bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+        <div class="bg-white p-5 w-11/12 max-w-lg shadow-lg rounded-lg text-left relative max-h-90vh overflow-y-auto">
+            <button class="absolute top-2 right-3 text-xl cursor-pointer bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="closeEditModal()">×</button>
+            <h2 class="text-lg font-bold mb-3">Edit Data Anak</h2>
+            <form>
+                <label class="block mb-2">Nama Anak:</label>
+                <input type="text" class="w-full p-2 border rounded mb-3">
+                <label class="block mb-2">Nama Orang Tua:</label>
+                <input type="text" class="w-full p-2 border rounded mb-3">
+                <label class="block mb-2">Tanggal:</label>
+                <input type="date" class="w-full p-2 border rounded mb-3">
+                <button type="submit" class="bg-purple-deep text-white px-4 py-2 rounded">Simpan</button>
+            </form>
+        </div>
     </div>
 
     <script>
+    document.getElementById("menuToggle").addEventListener("click", function () {
+        let sidebar = document.getElementById("sidebar");
+
+        // Toggle the sidebar visibility
+        if (sidebar.classList.contains("-translate-x-full")) {
+            sidebar.classList.remove("-translate-x-full");
+        } else {
+            sidebar.classList.add("-translate-x-full");
+        }
+    });
+
         function openModal() {
-            document.getElementById("infoModal").style.display = "flex";
+            document.getElementById("infoModal").classList.remove("hidden");
+            document.getElementById("infoModal").classList.add("flex");
         }
-
         function closeModal() {
-            document.getElementById("infoModal").style.display = "none";
+            document.getElementById("infoModal").classList.add("hidden");
         }
-
-        // Tutup modal jika klik di luar modal
-        window.onclick = function(event) {
-            var modal = document.getElementById("infoModal");
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        };
+        function openEditModal() {
+            document.getElementById("editModal").classList.remove("hidden");
+            document.getElementById("editModal").classList.add("flex");
+        }
+        function closeEditModal() {
+            document.getElementById("editModal").classList.add("hidden");
+        }
     </script>
-
 </body>
 </html>
