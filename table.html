@@ -1,80 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Purple Theme Table</title>
-    <link rel="stylesheet" href="table_css.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample UI with Custom Palette</title>
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #FFFFFF;
+      color: #000000;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar Styles */
+    nav {
+      background-color: #F3E8FF;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #310179;
+      font-weight: bold;
+      margin: 0 1rem;
+    }
+
+    /* Main Section */
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* Button Styles */
+    button {
+      background-color: #310179;
+      color: #FFFFFF;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #532396;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #22005A;
+      color: #FFFFFF;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    /* Divider */
+    hr {
+      border: 1px solid #E0E0E0;
+      margin: 2rem 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="table-container">
-        <div class="table-header">
-            <h2>Users Management</h2>
-            <div class="search-bar">
-                <input type="text" placeholder="Search users..." class="search-input">
-            </div>
-        </div>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>User Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th>Last Login</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Sarah Wilson</td>
-                        <td>sarah.wilson@example.com</td>
-                        <td>Administrator</td>
-                        <td><span class="status-badge status-active">Active</span></td>
-                        <td>2024-02-04 09:45 AM</td>
-                        <td>
-                            <button class="action-button edit-button">Edit</button>
-                            <button class="action-button delete-button">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Michael Brown</td>
-                        <td>michael.b@example.com</td>
-                        <td>Editor</td>
-                        <td><span class="status-badge status-pending">Pending</span></td>
-                        <td>2024-02-03 03:22 PM</td>
-                        <td>
-                            <button class="action-button edit-button">Edit</button>
-                            <button class="action-button delete-button">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Emily Davis</td>
-                        <td>emily.davis@example.com</td>
-                        <td>Viewer</td>
-                        <td><span class="status-badge status-inactive">Inactive</span></td>
-                        <td>2024-02-01 11:30 AM</td>
-                        <td>
-                            <button class="action-button edit-button">Edit</button>
-                            <button class="action-button delete-button">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="pagination">
-            <div class="page-info">
-                Showing 1 to 3 of 12 entries
-            </div>
-            <div class="page-buttons">
-                <button class="page-button">Previous</button>
-                <button class="page-button active">1</button>
-                <button class="page-button">2</button>
-                <button class="page-button">3</button>
-                <button class="page-button">Next</button>
-            </div>
-        </div>
+
+  <!-- Navbar -->
+  <nav>
+    <div><strong>Brand Name</strong></div>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
     </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h1>Welcome to Our Website</h1>
+    <p>Explore our services and find what fits your needs.</p>
+    <button>Get Started</button>
+
+    <hr>
+
+    <p>Need help? Contact us anytime.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Your Company. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>

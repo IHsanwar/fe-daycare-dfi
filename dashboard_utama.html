@@ -4,193 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Anak</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    colors: {
+                        'purple-deep': '#4B0082',
+                        'purple-light': '#6A5ACD',
+                        'purple-dark': '#483D8B'
+                    }
+                }
+            }
         }
-
-        body {
-            display: flex;
-            background-color: #f5f5f5;
-        }
-
-        .sidebar {
-            width: 250px;
-            background-color: #fff;
-            height: 100vh;
-            padding: 20px;
-        }
-
-        .dashboard-header {
-            background-color: #4B0082;
-            color: white;
-            padding: 20px;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
-            height: 100px;
-            margin-bottom: 20px;
-        }
-
-        .sidebar-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .menu-item {
-            padding: 10px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .logout {
-            margin-top: auto;
-            padding: 10px;
-            color: #666;
-            cursor: pointer;
-            position: absolute;
-            bottom: 20px;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 20px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .search-box {
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 200px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        th {
-            background-color: #f0f0f0;
-            padding: 12px;
-            text-align: left;
-        }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 8px;
-        }
-
-        .btn {
-            padding: 6px 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            color: white;
-            font-size: 12px;
-        }
-
-        .btn-status {
-            background-color: #4B0082;
-        }
-
-        .btn-info {
-            background-color: #6A5ACD;
-        }
-
-        .btn-update {
-            background-color: #483D8B;
-        }
-
-        .btn-delete {
-            background-color: #4B0082;
-        }
-
-        .status-incomplete {
-            background-color: #ff4444;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-
-        .status-complete {
-            background-color: #00C851;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-    </style>
+    </script>
 </head>
-<body>
-    <div class="sidebar">
-        <div class="dashboard-header">
-            <h2>Dashboard</h2>
-        </div>
-        <div class="sidebar-menu">
-            <div class="menu-item"></div>
-            <div class="menu-item"></div>
-            <div class="menu-item"></div>
-            <div class="menu-item"></div>
-            <div class="menu-item"></div>
-        </div>
-        <div class="logout">Logout</div>
-    </div>
-
-    <div class="main-content">
-        <div class="header">
-            <h2>Daftar Anak</h2>
-            <input type="text" placeholder="Cari nama anak..." class="search-box">
+<body class="font-poppins bg-gray-100">
+    <div class="flex flex-col md:flex-row min-h-screen relative">
+        <!-- Mobile Menu Toggle -->
+        <div class="md:hidden fixed top-4 left-4 z-30">
+            <button id="menuToggle" class="bg-purple-deep text-white p-2 rounded-md">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Nama Anak</th>
-                    <th>Nama Orang tua</th>
-                    <th>Tanggal</th>
-                    <th>Status Pengisian</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Haikal</td>
-                    <td>Ibu Jane Doe</td>
-                    <td>10 Feb 2025</td>
-                    <td><span class="status-incomplete">belum lengkap</span></td>
-                    <td>
-                        <div class="action-buttons">
-                            <button class="btn btn-status">Update Status</button>
-                            <button class="btn btn-info">Informasi Anak</button>
-                            <button class="btn btn-update">Update</button>
-                            <button class="btn btn-delete">Hapus</button>
-                        </div>
-                    </td>
-                </tr>
-                <!-- More rows would go here -->
-            </tbody>
-        </table>
+        <!-- Sidebar -->
+        <div id="sidebar" class="w-full md:w-64 bg-white md:h-screen p-5 fixed md:relative z-20 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+            <!-- Dashboard Header -->
+            <div class="bg-purple-deep text-white p-5 mb-5 h-24 flex items-center">
+                <h2 class="text-xl font-semibold">Dashboard Anak</h2>
+            </div>
+            
+            <!-- Sidebar Menu -->
+            <div class="flex flex-col gap-4">
+                <div class="p-2.5 text-xl bg-purple-400 text-white rounded cursor-pointer hover:bg-black">Dashboard User</div>
+                <div class="p-2.5 bg-gray-100 rounded cursor-pointer hover:bg-gray-200">Menu Item 1</div>
+                <div class="p-2.5 bg-gray-100 rounded cursor-pointer hover:bg-gray-200">Menu Item 2</div>
+            </div>
+            
+            <!-- Logout Button -->
+            <div class="p-2.5 text-white rounded cursor-pointer bg-red-700 md:absolute bottom-5 mt-4 md:mt-0 hover:text-black hover:bg-red-300 w-full md:w-auto text-center">Logout</div>
+        </div>
+
+        <!-- Overlay for mobile when sidebar is open -->
+        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-10 hidden md:hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-4 md:p-5 md:ml-0 pt-16 md:pt-5">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
+                <h2 class="text-xl font-semibold">Data Anak</h2>
+                <input type="text" placeholder="Cari nama anak..." class="p-2 border border-gray-300 rounded w-full md:w-52">
+            </div>
+
+            <!-- Table Container with horizontal scroll for smaller screens -->
+            <div class="overflow-x-auto bg-white rounded-lg shadow">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-3 text-left">Nama Anak</th>
+                            <th class="p-3 text-left">Nama Orang tua</th>
+                            <th class="p-3 text-left">Tanggal</th>
+                            <th class="p-3 text-left">Status</th>
+                            <th class="p-3 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-3">Haikal</td>
+                            <td class="p-3">Ibu Jane Doe</td>
+                            <td class="p-3">10 Feb 2025</td>
+                            <td class="p-3">
+                                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">belum lengkap</span>
+                            </td>
+                            <td class="p-3">
+                                <div class="flex flex-wrap gap-2">
+                                    <button class="px-3 py-1.5 bg-purple-deep text-white text-xs rounded hover:bg-opacity-90">Update</button>
+                                    <button class="px-3 py-1.5 bg-purple-light text-white text-xs rounded hover:bg-opacity-90" onclick="openModal()">Info</button>
+                                    <button class="px-3 py-1.5 bg-purple-dark text-white text-xs rounded hover:bg-opacity-90">Edit</button>
+                                    <button class="px-3 py-1.5 bg-red-400 text-white text-xs rounded hover:bg-opacity-90">Hapus</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Example additional rows -->
+                        <tr class="border-b border-gray-100">
+                            <td class="p-3">Evelyn</td>
+                            <td class="p-3">Ibu Sarah Smith</td>
+                            <td class="p-3">14 Feb 2025</td>
+                            <td class="p-3">
+                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">lengkap</span>
+                            </td>
+                            <td class="p-3">
+                                <div class="flex flex-wrap gap-2">
+                                    <button class="px-3 py-1.5 bg-purple-deep text-white text-xs rounded hover:bg-opacity-90">Update</button>
+                                    <button class="px-3 py-1.5 bg-purple-light text-white text-xs rounded hover:bg-opacity-90" onclick="openModal()">Info</button>
+                                    <button class="px-3 py-1.5 bg-purple-dark text-white text-xs rounded hover:bg-opacity-90">Edit</button>
+                                    <button class="px-3 py-1.5 bg-red-400 text-white text-xs rounded hover:bg-opacity-90">Hapus</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
+    <!-- Modal Pop-up -->
+    <div id="infoModal" class="fixed inset-0 hidden bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+        <div class="bg-white p-5 w-11/12 max-w-lg shadow-lg rounded-lg text-left relative max-h-90vh overflow-y-auto">
+            <button class="absolute top-2 right-3 text-xl cursor-pointer bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="closeModal()">×</button>
+            <div class="text-lg font-bold mb-2.5 text-black">Informasi Tentang Evelyn Castorice</div>
+            <ul class="list-none p-0 text-sm text-black">
+                <li class="py-2 border-b border-gray-200"><strong>Tanggal:</strong> 14/02/2025</li>
+                <li class="py-2 border-b border-gray-200"><strong>Makan Pagi:</strong> 1/2 porsi (Bubur Ayam)</li>
+                <li class="py-2 border-b border-gray-200"><strong>Makan Siang:</strong> 1/3 porsi (Nasi, Sayur, Ayam Goreng)</li>
+                <li class="py-2 border-b border-gray-200"><strong>Makan Sore:</strong> 1/4 porsi (Nasi Goreng Ayam Bakso)</li>
+                <li class="py-2 border-b border-gray-200"><strong>Camilan:</strong> Es Krim, Biskuit, Donat</li>
+                <li class="py-2 border-b border-gray-200"><strong>Air Putih:</strong> 200ml pagi, 200ml siang, 200ml sore</li>
+                <li class="py-2 border-b border-gray-200"><strong>Susu:</strong> 200ml pagi, 200ml siang, 200ml sore</li>
+                <li class="py-2 border-b border-gray-200"><strong>Buang Air Besar:</strong> 2× pagi, 1× siang, 1× sore</li>
+                <li class="py-2 border-b border-gray-200"><strong>Buang Air Kecil:</strong> 2× pagi, 3× siang, 1× sore</li>
+                <li class="py-2 border-b border-gray-200"><strong>Kegiatan Indoor:</strong> Bermain Bebas, Belajar Motorik, Belajar Sensorik</li>
+                <li class="py-2 border-b border-gray-200"><strong>Kegiatan Outdoor:</strong> Tidak ada</li>
+                <li class="py-2"><strong>Tidur:</strong> 2× pagi, 1× siang, 1× sore</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const overlay = document.getElementById("overlay");
+            
+            sidebar.classList.toggle("-translate-x-full");
+            
+            if (sidebar.classList.contains("-translate-x-full")) {
+                overlay.classList.add("hidden");
+            } else {
+                overlay.classList.remove("hidden");
+            }
+        }
+
+        // Set up event listener for menu toggle button
+        document.getElementById("menuToggle").addEventListener("click", toggleSidebar);
+
+        // Modal functions
+        function openModal() {
+            document.getElementById("infoModal").classList.remove("hidden");
+            document.getElementById("infoModal").classList.add("flex");
+        }
+
+        function closeModal() {
+            document.getElementById("infoModal").classList.remove("flex");
+            document.getElementById("infoModal").classList.add("hidden");
+        }
+
+        // Close modal if clicked outside
+        window.onclick = function(event) {
+            var modal = document.getElementById("infoModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+    </script>
 </body>
 </html>
