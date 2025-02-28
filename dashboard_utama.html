@@ -140,6 +140,69 @@
             border-radius: 4px;
             font-size: 12px;
         }
+
+        
+        /* Tombol dashboard utama */
+        .open-modal {
+            background-color: #4B0082;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Modal (pop-up) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--modal-bg);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #6A5ACD;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            text-align: left;
+            position: relative;
+        }
+
+        /* Tombol close */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .info-list {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 14px;
+        }
+
+        .info-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
     </style>
 </head>
 <body>
@@ -182,7 +245,7 @@
                     <td>
                         <div class="action-buttons">
                             <button class="btn btn-status">Update Status</button>
-                            <button class="btn btn-info">Informasi Anak</button>
+                            <button class="btn open-modal" onclick="openModal()">Informasi Anak</button>
                             <button class="btn btn-update">Update</button>
                             <button class="btn btn-delete">Hapus</button>
                         </div>
@@ -190,7 +253,53 @@
                 </tr>
                 <!-- More rows would go here -->
             </tbody>
+
+            
+    <!-- Tombol di dashboard utama -->
+    <button class="open-modal" onclick="openModal()">Lihat Informasi Anak</button>
+
+    <!-- Modal Pop-up -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="header">Informasi Tentang Evelyn Castorice</div>
+            <ul class="info-list">
+                <li><strong>Tanggal:</strong> 14/02/2025</li>
+                <li><strong>Makan Pagi:</strong> 1/2 porsi (Bubur Ayam)</li>
+                <li><strong>Makan Siang:</strong> 1/3 porsi (Nasi, Sayur, Ayam Goreng)</li>
+                <li><strong>Makan Sore:</strong> 1/4 porsi (Nasi Goreng Ayam Bakso)</li>
+                <li><strong>Camilan:</strong> Es Krim, Biskuit, Donat</li>
+                <li><strong>Air Putih:</strong> 200ml pagi, 200ml siang, 200ml sore</li>
+                <li><strong>Susu:</strong> 200ml pagi, 200ml siang, 200ml sore</li>
+                <li><strong>Buang Air Besar:</strong> 2× pagi, 1× siang, 1× sore</li>
+                <li><strong>Buang Air Kecil:</strong> 2× pagi, 3× siang, 1× sore</li>
+                <li><strong>Kegiatan Indoor:</strong> Bermain Bebas, Belajar Motorik, Belajar Sensorik</li>
+                <li><strong>Kegiatan Outdoor:</strong> Tidak ada</li>
+                <li><strong>Tidur:</strong> 2× pagi, 1× siang, 1× sore</li>
+            </ul>
+        </div>
+    </div>
+
         </table>
     </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("infoModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("infoModal").style.display = "none";
+        }
+
+        // Tutup modal jika klik di luar modal
+        window.onclick = function(event) {
+            var modal = document.getElementById("infoModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+
 </body>
 </html>
