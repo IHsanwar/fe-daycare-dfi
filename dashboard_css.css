@@ -132,6 +132,10 @@ body {
 .stats-section {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
 }
+.stats-section a{
+    text-decoration: none;
+    color: var(--text-dark);
+}
 
 .slider-container {
   width: 100%;
@@ -307,7 +311,7 @@ body {
 .sidebar a {
   display: flex;
   align-items: center;
-  gap: 10px; /* Jarak antara ikon dan teks */
+  gap: 30px; /* Jarak antara ikon dan teks */
   padding: 12px;
   color: white;
   text-decoration: none;
@@ -315,11 +319,14 @@ body {
   border-radius: 8px;
   transition: background 0.3s;
 }
-
+.sidebar a:hover {
+  background-color: #34495E;
+}
 .sidebar ul {
   list-style: none;
   padding: 0;
   width: 100%;
+  margin-right: 10px;
 }
 .sidebar ul li {
   padding: 15px;
@@ -329,6 +336,11 @@ body {
   text-decoration: none;
   display: block;
 }
+.sidebar ul li a i {
+  margin-right: 15px; /* Atur jarak sesuai kebutuhan Anda */
+}
+
+
 .sidebar ul li a:hover {
   background: rgba(255, 255, 255, 0.2);
 }

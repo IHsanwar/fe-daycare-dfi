@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Anak</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f0f0f0;
+        }
+
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background: #4B0082;
+            position: fixed;
+            padding: 20px;
+        }
+
+        .sidebar h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-admin {
+            background: #98FB98;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: #006400;
+            display: inline-block;
+            margin-bottom: 300px;
+        }
+
+        .keluar-btn {
+            background: #ff0000;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .main-content {
+            margin-left: 240px;
+            padding: 20px;
+        }
+
+        .header-info {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .info-group {
+            margin-bottom: 15px;
+        }
+
+        .info-group h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .date {
+            background: #e0e0e0;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .grid-item {
+            background: #4B0082;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background: white;
+            width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #4B0082;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>Dashboard Anak</h1>
+        <div class="dashboard-admin">👤 Dashboard Admin</div>
+        <a href="#" class="keluar-btn">🚪 Keluar</a>
+    </div>
+
+    <div class="main-content">
+        <div class="header-info">
+            <div class="info-group">
+                <h3>👤 Update status anak</h3>
+            </div>
+            <div class="info-group">
+                <h3>👶 Nama Anak</h3>
+                <p>Faris</p>
+            </div>
+            <div class="info-group">
+                <h3>👤 Nama Pendamping</h3>
+                <p>Erisia Chelly</p>
+            </div>
+            <div class="info-group">
+                <h3>📅 Tanggal <span class="date">12-02-2025</span></h3>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <div class="grid-item" onclick="openModal('makan')">
+                🍽️ Menu Makan & Camilan
+            </div>
+            <div class="grid-item" onclick="openModal('buang-air')">
+                🚽 Buang Air Kecil & Air Besar
+            </div>
+            <div class="grid-item" onclick="openModal('air-susu')">
+                🥛 Air Putih & Susu
+            </div>
+            <div class="grid-item" onclick="openModal('kegiatan')">
+                🎮 Kegiatan Indoor & Outdoor
+            </div>
+            <div class="grid-item" onclick="openModal('obat')">
+                💊 Obat
+            </div>
+            <div class="grid-item" onclick="openModal('tidur')">
+                🛏️ Tidur
+            </div>
+            <div class="grid-item" onclick="openModal('kesehatan')">
+                ❤️ Kondisi Kesehatan
+            </div>
+            <div class="grid-item" onclick="openModal('keterangan')">
+                📝 Keterangan
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Templates -->
+    <div id="modal-makan" class="modal">
+        <div class="modal-content">
+            <h2>Menu Makan & Camilan</h2>
+            <form>
+                <div class="form-group">
+                    <label>Jenis Makanan</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Porsi</label>
+                    <select required>
+                        <option>Habis</option>
+                        <option>Setengah</option>
+                        <option>Sedikit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Waktu</label>
+                    <input type="time" required>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('makan')">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="modal-buang-air" class="modal">
+        <div class="modal-content">
+            <h2>Buang air</h2>
+            <form>
+                <div class="form-group">
+                    <label>Jumlah</label>
+                    <input type="text" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Waktu</label>
+                    <input type="time" required>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('buang-air')">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="modal-keterangan" class="modal">
+        <div class="modal-content">
+            <h2>Buang air</h2>
+            <form>
+                <div class="form-group">
+                    <label>Keterangan tambahan</label>
+                    <input type="textarea" required>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('keterangan')">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Similar modals for other buttons -->
+    <script>
+        function openModal(id) {
+            document.getElementById(`modal-${id}`).style.display = 'block';
+        }
+
+        function closeModal(id) {
+            document.getElementById(`modal-${id}`).style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
