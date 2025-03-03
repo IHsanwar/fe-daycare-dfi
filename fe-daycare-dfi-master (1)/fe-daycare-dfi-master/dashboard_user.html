@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Anak</title> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    colors: {
+                        'purple-deep': '#4B0082',
+                        'purple-light': '#6A5ACD',
+                        'purple-dark': '#483D8B'
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+    function goToUserDashboard() {
+        window.location.href = "dashboard_utama.html"; // Redirect ke halaman user
+    }
+</script>
+    
+</head>
+<body class="font-poppins bg-gray-100">
+    <div class="flex flex-col md:flex-row min-h-screen relative">
+        <div class="md:hidden fixed top-4 left-4 z-30">
+            <button id="menuToggle" class="bg-purple-deep text-white p-2 rounded-md">☰</button>
+        </div>
+
+        <div id="sidebar" class="w-full md:w-64 bg-white md:h-screen p-5 fixed md:relative z-20 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+            <div class="bg-purple-deep text-white p-5 mb-5 h-24 flex items-center rounded">
+                <h2 class="text-xl font-semibold">Dashboard Anak</h2>
+            </div>
+            <div class="flex flex-col gap-4">
+                <button class="p-2.5 text-xl bg-purple-400 text-white rounded hover:bg-black" onclick="goToUserDashboard()">Dashboard Admin</button>
+                <button class="p-2.5 bg-gray-100 rounded hover:bg-gray-200">Menu Item 1</button>
+                <button class="p-2.5 bg-gray-100 rounded hover:bg-gray-200">Menu Item 2</button>
+            </div>
+            <button class="p-2.5 text-white bg-red-700 mt-4 hover:text-black hover:bg-red-300 w-full text-center">Logout</button>
+        </div>
+
+        <div class="flex-1 p-4 md:p-5 pt-16 md:pt-5">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
+                <h2 class="text-xl font-semibold">Data Anak</h2>
+                <input type="text" placeholder="Cari nama anak..." class="p-2 border border-gray-300 rounded w-full md:w-52">
+            </div>
+
+            <div class="overflow-x-auto bg-white rounded-lg shadow">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-3 text-left">Nama Anak</th>
+                            <th class="p-3 text-left">Nama Orang tua</th>
+                            <th class="p-3 text-left">Tanggal</th>
+                            <th class="p-3 text-left">Status</th>
+                            <th class="p-3 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-3">Haikal</td>
+                            <td class="p-3">Ibu Jane Doe</td>
+                            <td class="p-3">10 Feb 2025</td>
+                            <td class="p-3">
+                                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">belum lengkap</span>
+                            </td>
+                            <td class="p-3 flex gap-2">
+                                <button class="px-3 py-1.5 bg-purple-dark text-white text-xs rounded hover:bg-opacity-90" onclick="openEditModal()">Edit</button>
+                                <button class="px-3 py-1.5 bg-red-400 text-white text-xs rounded hover:bg-opacity-90" onclick="openDeleteModal()">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <!-- Modal Edit -->
+    <div id="editModal" class="fixed inset-0 hidden bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+        <div class="bg-white p-5 w-11/12 max-w-lg shadow-lg rounded-lg text-left relative max-h-90vh overflow-y-auto">
+            <button class="absolute top-2 right-3 text-xl cursor-pointer bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="closeEditModal()">×</button>
+            <h2 class="text-lg font-bold mb-3">Edit Data Anak</h2>
+            <form>
+                <label class="block mb-2">Nama Anak:</label>
+                <input type="text" class="w-full p-2 border rounded mb-3">
+                <label class="block mb-2">Nama Orang Tua:</label>
+                <input type="text" class="w-full p-2 border rounded mb-3">
+                <label class="block mb-2">Tanggal:</label>
+                <input type="date" class="w-full p-2 border rounded mb-3">
+                <button type="submit" class="bg-purple-deep text-white px-4 py-2 rounded">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Konfirmasi Penghapusan -->
+    <div id="deleteModal" class="fixed inset-0 hidden bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white p-5 w-11/12 max-w-lg shadow-lg rounded-lg text-left relative">
+            <button class="absolute top-2 right-3 text-xl cursor-pointer bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="closeDeleteModal()">×</button>
+            <h2 class="text-lg font-bold mb-3">Konfirmasi Penghapusan</h2>
+            <p class="text-gray-800 mb-4">Apakah Anda yakin ingin menghapus data ini?</p>
+            <div class="flex justify-end gap-2">
+                <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600" onclick="closeDeleteModal()">Batal</button>
+                <button class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("infoModal").classList.remove("hidden");
+            document.getElementById("infoModal").classList.add("flex");
+        }
+
+        function closeModal() {
+            document.getElementById("infoModal").classList.add("hidden");
+        }
+
+        function openEditModal() {
+            document.getElementById("editModal").classList.remove("hidden");
+            document.getElementById("editModal").classList.add("flex");
+        }
+
+        function closeEditModal() {
+            document.getElementById("editModal").classList.add("hidden");
+        }
+
+        function openDeleteModal() {
+            let modal = document.getElementById("deleteModal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function closeDeleteModal() {
+            let modal = document.getElementById("deleteModal");
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+        }
+
+        document.getElementById("menuToggle").addEventListener("click", function () {
+            let sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("-translate-x-full");
+        });
+
+        document.querySelectorAll(".hapus-btn").forEach(button => {
+            button.addEventListener("click", openDeleteModal);
+        });
+
+        document.querySelectorAll("#deleteModal, #infoModal, #editModal").forEach(modal => {
+            modal.addEventListener("click", function (event) {
+                if (event.target === modal) {
+                    modal.classList.add("hidden");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Status Anak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-gray-900 font-sans">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-gradient-to-b from-purple-900 to-gray-200 p-5 flex flex-col justify-between">
+            <div>
+                <h1 class="text-white text-2xl font-bold">Dashboard</h1>
+                <h1 class="text-white text-2xl font-bold">Anak</h1>
+            </div>
+            <div class="flex flex-col gap-3">
+                <button class="bg-green-500 text-white py-2 px-4 rounded flex items-center gap-2 font-bold">👤 Dashboard Admin</button>
+                <button class="bg-red-500 text-white py-2 px-4 rounded flex items-center gap-2 font-bold">↪ Keluar</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 bg-white flex flex-col">
+            <div class="bg-white p-5 flex items-center gap-3">
+                <span class="text-2xl">👤</span>
+                <h2 class="text-xl font-semibold">Update status anak</h2>
+            </div>
+            
+            <div class="bg-gray-100 px-5 py-3 text-gray-700">Dashboard Anak / Update</div>
+            
+            <div class="p-5">
+                <div class="flex flex-col md:flex-row gap-10 mb-5">
+                    <div class="flex items-center gap-3 font-bold">
+                        <span class="text-2xl">👤</span>
+                        Nama Anak: <span class="px-2 py-1 bg-gray-200 border rounded">Faris Kartawijaya</span>
+                    </div>
+                    <div class="flex items-center gap-3 font-bold">
+                        <span class="text-2xl">📅</span>
+                        Tanggal: <input type="text" value="12-02-2025" class="px-2 py-1 bg-gray-200 border rounded">
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 font-bold">
+                    <span class="text-2xl">👤</span>
+                    Nama Pendamping:
+                    <input type="text" value="Erista Chelly" class="px-2 py-1 bg-gray-200 border rounded" readonly>
+                </div>
+            </div>
+            
+            <div class="h-px bg-gray-300 mx-5"></div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-5 p-5">
+                <div class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer">
+                    <div class="text-2xl">🍽️</div>
+                    <div>Menu Makan & Camilan</div>
+                </div>
+                <div class="bg-blue-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer">
+                    <div class="text-2xl">🚽</div>
+                    <div>Buang Air Kecil & Besar</div>
+                </div>
+                <div class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer">
+                    <div class="text-2xl">🍼</div>
+                    <div>Air Putih & Susu</div>
+                </div>
+                <div class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer">
+                    <div class="text-2xl">🏠</div>
+                    <div>Kegiatan Indoor & Outdoor</div>
+                </div>
+                <div class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer">
+                    <div class="text-2xl">💊</div>
+                    <div>Obat</div>
+                </div>
+                <div class="bg-blue-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer">
+                    <div class="text-2xl">🛏️</div>
+                    <div>Tidur</div>
+                </div>
+                <div class="bg-indigo-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer">
+                    <div class="text-2xl">❤️</div>
+                    <div>Kondisi Kesehatan</div>
+                </div>
+                <div class="bg-indigo-400 text-white p-4 rounded flex items-center gap-3 cursor-pointer">
+                    <div class="text-2xl">📝</div>
+                    <div>Keterangan</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
