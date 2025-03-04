@@ -21,11 +21,11 @@
             }
         }
     </script>
-     <script>
-        function goToUserDashboard() {
-            window.location.href = "dashboard_user.html"; // Redirect ke halaman user
-        }
-    </script>
+    <script>
+    function goToUserDashboard() {
+        window.location.href = "dashboard_utama.html"; // Redirect ke halaman user
+    }
+</script>
     
 </head>
 <body class="font-poppins bg-gray-100">
@@ -39,16 +39,16 @@
                 <h2 class="text-xl font-semibold">Dashboard Anak</h2>
             </div>
             <div class="flex flex-col gap-4">
-                <button class="p-2.5 text-xl bg-purple-400 text-white rounded hover:bg-black" onclick="goToUserDashboard()">Dashboard User</button>
+                <button class="p-2.5 text-xl bg-purple-400 text-white rounded hover:bg-black" onclick="goToUserDashboard()">Dashboard Admin</button>
                 <button class="p-2.5 bg-gray-100 rounded hover:bg-gray-200">Menu Item 1</button>
                 <button class="p-2.5 bg-gray-100 rounded hover:bg-gray-200">Menu Item 2</button>
             </div>
-            <button class="p-2.5 text-white bg-red-700 mt-4 hover:text-black hover:bg-red-300 w-full text-center" >Logout</button>
+            <button class="p-2.5 text-white bg-red-700 mt-4 hover:text-black hover:bg-red-300 w-full text-center">Logout</button>
         </div>
 
         <div class="flex-1 p-4 md:p-5 pt-16 md:pt-5">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
-                <h2 class="text-xl font-semibold">Data Anak</h2>
+                <h2 class="text-xl font-semibold">Data Pengguna</h2>
                 <input type="text" placeholder="Cari nama anak..." class="p-2 border border-gray-300 rounded w-full md:w-52">
             </div>
 
@@ -72,8 +72,6 @@
                                 <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">belum lengkap</span>
                             </td>
                             <td class="p-3 flex gap-2">
-                                <button class="px-3 py-1.5 bg-purple-deep text-white text-xs rounded hover:bg-opacity-90" onclick="window.location.href='update_anak.html'"">Update</button>
-                                <button class="px-3 py-1.5 bg-purple-light text-white text-xs rounded hover:bg-opacity-90" onclick="openModal()">Info</button>
                                 <button class="px-3 py-1.5 bg-purple-dark text-white text-xs rounded hover:bg-opacity-90" onclick="openEditModal()">Edit</button>
                                 <button class="px-3 py-1.5 bg-red-400 text-white text-xs rounded hover:bg-opacity-90" onclick="openDeleteModal()">Hapus</button>
                             </td>
@@ -85,30 +83,7 @@
     </div>
 
 
-    <!-- Modal Info -->
-    <div id="infoModal" class="fixed inset-0 hidden bg-black bg-opacity-50 items-center justify-center z-50 p-4">
-        <div class="bg-white p-5 w-11/12 max-w-lg shadow-lg rounded-lg text-left relative max-h-90vh overflow-y-auto">
-            <button class="absolute top-2 right-3 text-xl cursor-pointer bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-opacity-50 transition duration-550 ease-in-out " onclick="closeModal()">×</button>
-            <div class="text-lg font-bold mb-2.5 text-black">Informasi Tentang Evelyn Castorice</div>
-            <ul class="list-none p-0 text-sm text-black">
-                <li class="py-2 border-b border-gray-200"><strong>Tanggal:</strong> 14/02/2025</li>
-                <li class="py-2 border-b border-gray-200"><strong>Makan Pagi:</strong> 1/2 porsi (Bubur Ayam)</li>
-                <li class="py-2 border-b border-gray-200"><strong>Makan Siang:</strong> 1/3 porsi (Nasi, Sayur, Ayam Goreng)</li>
-                <li class="py-2 border-b border-gray-200"><strong>Makan Sore:</strong> 1/4 porsi (Nasi Goreng Ayam Bakso)</li>
-                <li class="py-2 border-b border-gray-200"><strong>Camilan:</strong> Es Krim, Biskuit, Donat</li>
-                <li class="py-2 border-b border-gray-200"><strong>Air Putih:</strong> 200ml pagi, 200ml siang, 200ml sore</li>
-                <li class="py-2 border-b border-gray-200"><strong>Susu:</strong> 200ml pagi, 200ml siang, 200ml sore</li>
-                <li class="py-2 border-b border-gray-200"><strong>Buang Air Besar:</strong> 2× pagi, 1× siang, 1× sore</li>
-                <li class="py-2 border-b border-gray-200"><strong>Buang Air Kecil:</strong> 2× pagi, 3× siang, 1× sore</li>
-                <li class="py-2 border-b border-gray-200"><strong>Kegiatan Indoor:</strong> Bermain Bebas, Belajar Motorik, Belajar Sensorik</li>
-                <li class="py-2 border-b border-gray-200"><strong>Kegiatan Outdoor:</strong> Tidak ada</li>
-                <li class="py-2"><strong>Tidur:</strong> 2× pagi, 1× siang, 1× sore</li>
-                <li class="py-2 border-b border-gray-200"><strong>Catatan:</strong> <i class="bg-gray-200 p-2 rounded-md"> Catatan disini panjang sekali bayangkan jika... </i></li>
-                <li>
-                <button type="submit" class="bg-purple-deep text-white px-4 py-2 rounded mt-4  hover:bg-opacity-70">Download Data</button></li>
-            </ul>
-        </div>
-    </div>
+    
 
     <!-- Modal Edit -->
     <div id="editModal" class="fixed inset-0 hidden bg-black bg-opacity-50 items-center justify-center z-50 p-4">
