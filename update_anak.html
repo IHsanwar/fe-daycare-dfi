@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Anak</title>
+    <title>Update Anak</title>
     <script src="https://kit.fontawesome.com/e16c014aae.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -27,12 +27,32 @@
 </head>
 <body class="bg-gray-50">
     <!-- Mobile Menu Button -->
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'poppins': ['Poppins', 'sans-serif']
+                },
+                colors: {
+                    'purple-deep': '#4B0082',
+                    'purple-light': '#6A5ACD',
+                    'purple-dark': '#483D8B'
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body class="font-poppins bg-gray-100">
+<div class="flex flex-col md:flex-row min-h-screen relative">
+
     <div class="md:hidden fixed top-4 left-4 z-30">
         <button id="menuToggle" class="bg-purple-deep text-white p-2 rounded-md">☰</button>
     </div>
-
     <div id="sidebar" class="fixed top-0 left-0 w-64 bg-white h-screen p-5 z-20 
      -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+    <div id="sidebar" class="w-full md:w-64 bg-white md:h-screen p-5 fixed md:relative z-20 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
         <div class="bg-purple-deep text-white p-5 mb-5 h-24 flex items-center rounded">
             <h2 class="text-xl font-semibold">Dashboard Anak</h2>
         </div>
@@ -43,6 +63,7 @@
         </div>
         <button class="p-2.5 text-white bg-red-700 mt-4 hover:text-black hover:bg-red-300 w-full text-center">Logout</button>
     </div>
+
 
     <!-- Main Content -->
     <div class="lg:ml-64 p-6 transition-all duration-300 ease-in-out">
@@ -59,6 +80,10 @@
                     <p><strong>Pendamping:</strong> Erisia O'helly</p>
                 </div>
             </div>
+    <div class="flex-1 p-4 md:p-5 pt-16 md:pt-5">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
+            <h2 class="text-xl font-semibold">Data Anak</h2>
+            <input type="text" placeholder="Cari nama anak..." class="p-2 border border-gray-300 rounded w-full md:w-52">
         </div>
 
         <!-- Porsi Makan Section -->
@@ -88,6 +113,7 @@
                     </label>
                 </div>
             </div>
+
         </div>
 
         <!-- Menu Makan Section -->
@@ -107,6 +133,54 @@
                     <input type="text" placeholder="Menu 6" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-light focus:border-transparent">
                     <input type="text" placeholder="Menu 7" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-light focus:border-transparent">
                 </div>
+
+            
+            <div class="h-px bg-gray-300 mx-5"></div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5">
+                <a href="update_makan_cmlan.html" class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
+                    <div class="text-2xl">🍽️</div>
+                    <div>Menu Makan & Camilan</div>
+                </a>
+            
+                <a href="buang_air.html" class="bg-blue-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-blue-600 transition w-full">
+                    <div class="text-2xl">🚽</div>
+                    <div>Buang Air Kecil & Besar</div>
+                </a>
+            
+                <a href="airputih_susu.html" class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
+                    <div class="text-2xl">🍼</div>
+                    <div>Air Putih & Susu</div>
+                </a>
+            
+                <a href="indoor_outdoor.html" class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
+                    <div class="text-2xl">🏠</div>
+                    <div>Kegiatan Indoor & Outdoor</div>
+                </a>
+            
+                <a href="URL_OBAT" class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
+                    <div class="text-2xl">💊</div>
+                    <div>Obat</div>
+                </a>
+            
+                <a href="URL_TIDUR" class="bg-blue-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-blue-600 transition w-full">
+                    <div class="text-2xl">🛏️</div>
+                    <div>Tidur</div>
+                </a>
+            
+                <a href="URL_KESEHATAN" class="bg-indigo-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-indigo-600 transition w-full">
+                    <div class="text-2xl">❤️</div>
+                    <div>Kondisi Kesehatan</div>
+                </a>
+            
+                <a href="URL_KETERANGAN" class="bg-indigo-400 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-indigo-500 transition w-full">
+                    <div class="text-2xl">📝</div>
+                    <div>Keterangan</div>
+                </a>
+            </div>
+            
+            
+
             </div>
         </div>
     </div>
