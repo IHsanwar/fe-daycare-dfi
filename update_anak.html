@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Anak</title>
+    <title>Update Anak</title>
     <script src="https://kit.fontawesome.com/e16c014aae.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
                     colors: {
                         'purple-deep': '#4B0082',
                         'purple-light': '#6A5ACD',
@@ -21,18 +24,22 @@
     </script>
     <style>
         body {
-            font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100 font-poppins">
+
+<div class="flex flex-col md:flex-row min-h-screen relative">
+
     <!-- Mobile Menu Button -->
     <div class="md:hidden fixed top-4 left-4 z-30">
         <button id="menuToggle" class="bg-purple-deep text-white p-2 rounded-md">☰</button>
     </div>
 
+    <!-- Sidebar -->
     <div id="sidebar" class="fixed top-0 left-0 w-64 bg-white h-screen p-5 z-20 
-     -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+        -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
         <div class="bg-purple-deep text-white p-5 mb-5 h-24 flex items-center rounded">
             <h2 class="text-xl font-semibold">Dashboard Anak</h2>
         </div>
@@ -45,8 +52,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="lg:ml-64 p-6 transition-all duration-300 ease-in-out">
-        <!-- Header Section -->
+    <div class="md:ml-64 p-6 transition-all duration-300 ease-in-out w-full">
         <div class="bg-white rounded-lg shadow-md p-4 mb-6">
             <div class="flex items-center mb-4">
                 <span class="text-2xl mr-2"><i class="fa-solid fa-child"></i></span>
@@ -88,58 +94,42 @@
                     </label>
                 </div>
             </div>
-        </div>
-
-        <!-- Menu Makan Section -->
-        <div class="bg-white rounded-lg shadow-md p-4 mb-6">
-            <div class="flex items-center mb-4">
-                <span class="text-2xl mr-2"><i class="fa-solid fa-utensils"></i></span>
-                <h2 class="font-bold text-xl text-purple-dark">Menu Makan & Camilan</h2>
-            </div>
-            <div class="bg-gray-50 p-4 rounded-md">
-                <p class="font-semibold text-purple-dark mb-3">Pagi</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-                    <input type="text" placeholder="Menu 1" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-light focus:border-transparent">
-                    <input type="text" placeholder="Menu 2" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-light focus:border-transparent">
-                    <input type="text" placeholder="Menu 3" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-light focus:border-transparent">
-                    <input type="text" placeholder="Menu 4" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-light focus:border-transparent">
-                    <input type="text" placeholder="Menu 5" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-light focus:border-transparent">
-                    <input type="text" placeholder="Menu 6" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-light focus:border-transparent">
-                    <input type="text" placeholder="Menu 7" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-light focus:border-transparent">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('-translate-x-full');
-});
-
-
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const menuBtn = document.getElementById('menuBtn');
             
-            if (window.innerWidth < 1024 && 
-                !sidebar.contains(event.target) && 
-                !menuBtn.contains(event.target) && 
-                !sidebar.classList.contains('-translate-x-full')) {
-                sidebar.classList.add('-translate-x-full');
-            }
-        });
+        </div>
+        
+    </div>
+</div>
 
-        // Reset sidebar on resize
-        window.addEventListener('resize', function() {
-            const sidebar = document.getElementById('sidebar');
-            if (window.innerWidth >= 1024) {
-                sidebar.classList.remove('-translate-x-full');
-            } else {
-                sidebar.classList.add('-translate-x-full');
-            }
-        });
-    </script>
+<script>
+    // Sidebar Toggle Logic
+    document.getElementById('menuToggle').addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('-translate-x-full');
+    });
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function(event) {
+        const sidebar = document.getElementById('sidebar');
+        const menuToggle = document.getElementById('menuToggle');
+
+        if (window.innerWidth < 768 && 
+            !sidebar.contains(event.target) && 
+            !menuToggle.contains(event.target) && 
+            !sidebar.classList.contains('-translate-x-full')) {
+            sidebar.classList.add('-translate-x-full');
+        }
+    });
+
+    // Reset sidebar on resize
+    window.addEventListener('resize', function() {
+        const sidebar = document.getElementById('sidebar');
+        if (window.innerWidth >= 768) {
+            sidebar.classList.remove('-translate-x-full');
+        } else {
+            sidebar.classList.add('-translate-x-full');
+        }
+    });
+</script>
+
 </body>
 </html>
