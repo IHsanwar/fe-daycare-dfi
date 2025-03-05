@@ -3,30 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Anak</title>
+    <title>Dashboard Anak</title>
     <script src="https://kit.fontawesome.com/e16c014aae.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'purple-deep': '#4B0082',
-                        'purple-light': '#6A5ACD',
-                        'purple-dark': '#483D8B'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
-        }
-    </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Mobile Menu Button -->
 <script>
     tailwind.config = {
         theme: {
@@ -44,15 +24,14 @@
     }
 </script>
 </head>
-<body class="font-poppins bg-gray-100">
-<div class="flex flex-col md:flex-row min-h-screen relative">
-
+<body class="bg-gray-50">
+    <!-- Mobile Menu Button -->
     <div class="md:hidden fixed top-4 left-4 z-30">
         <button id="menuToggle" class="bg-purple-deep text-white p-2 rounded-md">☰</button>
     </div>
+
     <div id="sidebar" class="fixed top-0 left-0 w-64 bg-white h-screen p-5 z-20 
      -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
-    <div id="sidebar" class="w-full md:w-64 bg-white md:h-screen p-5 fixed md:relative z-20 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
         <div class="bg-purple-deep text-white p-5 mb-5 h-24 flex items-center rounded">
             <h2 class="text-xl font-semibold">Dashboard Anak</h2>
         </div>
@@ -64,26 +43,27 @@
         <button class="p-2.5 text-white bg-red-700 mt-4 hover:text-black hover:bg-red-300 w-full text-center">Logout</button>
     </div>
 
-
-    <!-- Main Content -->
-    <div class="lg:ml-64 p-6 transition-all duration-300 ease-in-out">
-        <!-- Header Section -->
-        <div class="bg-white rounded-lg shadow-md p-4 mb-6">
-            <div class="flex items-center mb-4">
-                <span class="text-2xl mr-2"><i class="fa-solid fa-child"></i></span>
-                <h2 class="font-bold text-xl text-purple-dark">Update Status Anak</h2>
+        <!-- Main Content -->
+        <div class="flex-1 bg-white flex flex-col">
+            <div class="bg-white p-5 flex items-center gap-3">
+                <span class="text-2xl">👤</span>
+                <h2 class="text-xl font-semibold">Update status anak</h2>
             </div>
-            <div class="bg-gray-50 p-4 rounded-md">
-                <div class="grid md:grid-cols-3 gap-4">
-                    <p><strong>Nama Anak:</strong> Faris</p>
-                    <p><strong>Tanggal:</strong> 12-02-2025</p>
-                    <p><strong>Pendamping:</strong> Erisia O'helly</p>
+            
+            <div class="bg-gray-100 px-5 py-3 text-gray-700">Dashboard Anak / Update</div>
+            
+            <div class="p-5">
+                <div class="flex flex-col md:flex-row gap-10 mb-5">
+                    <div class="flex items-center gap-3 font-bold">
+                        <span class="text-2xl">👤</span>
+                        Nama Anak: <span class="px-2 py-1 bg-gray-200 border rounded">Faris Kartawijaya</span>
+                    </div>
+                    <div class="flex items-center gap-3 font-bold">
+                        <span class="text-2xl">📅</span>
+                        Tanggal: <input type="text" value="12-02-2025" class="px-2 py-1 bg-gray-200 border rounded">
+                    </div>
                 </div>
             </div>
-    <div class="flex-1 p-4 md:p-5 pt-16 md:pt-5">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
-            <h2 class="text-xl font-semibold">Data Anak</h2>
-            <input type="text" placeholder="Cari nama anak..." class="p-2 border border-gray-300 rounded w-full md:w-52">
         </div>
 
         <!-- Porsi Makan Section -->
@@ -113,7 +93,6 @@
                     </label>
                 </div>
             </div>
-
         </div>
 
         <!-- Menu Makan Section -->
@@ -133,87 +112,8 @@
                     <input type="text" placeholder="Menu 6" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-light focus:border-transparent">
                     <input type="text" placeholder="Menu 7" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-light focus:border-transparent">
                 </div>
-
-            
-            <div class="h-px bg-gray-300 mx-5"></div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5">
-                <a href="update_makan_cmlan.html" class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">🍽️</div>
-                    <div>Menu Makan & Camilan</div>
-                </a>
-            
-                <a href="buang_air.html" class="bg-blue-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-blue-600 transition w-full">
-                    <div class="text-2xl">🚽</div>
-                    <div>Buang Air Kecil & Besar</div>
-                </a>
-            
-                <a href="airputih_susu.html" class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">🍼</div>
-                    <div>Air Putih & Susu</div>
-                </a>
-            
-                <a href="indoor_outdoor.html" class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">🏠</div>
-                    <div>Kegiatan Indoor & Outdoor</div>
-                </a>
-            
-                <a href="URL_OBAT" class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">💊</div>
-                    <div>Obat</div>
-                </a>
-            
-                <a href="URL_TIDUR" class="bg-blue-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-blue-600 transition w-full">
-                    <div class="text-2xl">🛏️</div>
-                    <div>Tidur</div>
-                </a>
-            
-                <a href="URL_KESEHATAN" class="bg-indigo-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-indigo-600 transition w-full">
-                    <div class="text-2xl">❤️</div>
-                    <div>Kondisi Kesehatan</div>
-                </a>
-            
-                <a href="URL_KETERANGAN" class="bg-indigo-400 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-indigo-500 transition w-full">
-                    <div class="text-2xl">📝</div>
-                    <div>Keterangan</div>
-                </a>
-            </div>
-            
-            
-
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('-translate-x-full');
-});
-
-
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const menuBtn = document.getElementById('menuBtn');
-            
-            if (window.innerWidth < 1024 && 
-                !sidebar.contains(event.target) && 
-                !menuBtn.contains(event.target) && 
-                !sidebar.classList.contains('-translate-x-full')) {
-                sidebar.classList.add('-translate-x-full');
-            }
-        });
-
-        // Reset sidebar on resize
-        window.addEventListener('resize', function() {
-            const sidebar = document.getElementById('sidebar');
-            if (window.innerWidth >= 1024) {
-                sidebar.classList.remove('-translate-x-full');
-            } else {
-                sidebar.classList.add('-translate-x-full');
-            }
-        });
-    </script>
 </body>
 </html>
