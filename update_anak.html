@@ -101,13 +101,11 @@
 </div>
 
 <script>
-    // Sidebar Toggle Logic
     document.getElementById('menuToggle').addEventListener('click', function() {
         const sidebar = document.getElementById('sidebar');
         sidebar.classList.toggle('-translate-x-full');
     });
 
-    // Close sidebar when clicking outside on mobile
     document.addEventListener('click', function(event) {
         const sidebar = document.getElementById('sidebar');
         const menuToggle = document.getElementById('menuToggle');
