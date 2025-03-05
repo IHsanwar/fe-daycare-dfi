@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Anak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'poppins': ['Poppins', 'sans-serif']
+                },
+                colors: {
+                    'purple-deep': '#4B0082',
+                    'purple-light': '#6A5ACD',
+                    'purple-dark': '#483D8B'
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body class="font-poppins bg-gray-100">
+<div class="flex flex-col md:flex-row min-h-screen relative">
+<div class="md:hidden fixed top-4 left-4 z-30">
+    <button id="menuToggle" class="bg-purple-deep text-white p-2 rounded-md">☰</button>
+</div>
+
+<div id="sidebar" class="w-full md:w-64 bg-white md:h-screen p-5 fixed md:relative z-20 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+    <div class="bg-purple-deep text-white p-5 mb-5 h-24 flex items-center rounded">
+        <h2 class="text-xl font-semibold">Dashboard Anak</h2>
+    </div>
+    <div class="flex flex-col gap-4">
+        <button class="p-2.5 text-xl bg-purple-400 text-white rounded hover:bg-black">Dashboard User</button>
+        <button class="p-2.5 bg-gray-100 rounded hover:bg-gray-200">Menu Item 1</button>
+        <button class="p-2.5 bg-gray-100 rounded hover:bg-gray-200">Menu Item 2</button>
+    </div>
+    <button class="p-2.5 text-white bg-red-700 mt-4 hover:text-black hover:bg-red-300 w-full text-center">Logout</button>
+</div>
+<!-- Main Content -->
+<div class="flex-1">
+    <!-- Header -->
+    <div class="bg-gray-300 p-3 shadow">
+        <div class="flex items-center">
+            <i class="fas fa-edit mr-2"></i>
+            <span class="font-bold">Update status anak</span>
+        </div>
+    </div>
+    
+    <!-- Child Info -->
+    <div class="p-4">
+        <div class="bg-white p-4 mb-4 rounded">
+            <div class="flex justify-between">
+                <!-- Left: Child and companion info -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-child bg-black text-white p-2 rounded-full mr-3"></i>
+                        <div>
+                            <div class="text-sm">Nama Anak</div>
+                            <div class="font-semibold">Faris</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <i class="fas fa-user bg-black text-white p-2 rounded-full mr-3"></i>
+                        <div>
+                            <div class="text-sm">Nama Pendamping</div>
+                            <div class="font-semibold">Erisia Chelly</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: Date -->
+                <div>
+                    <div class="flex items-center">
+                        <i class="far fa-calendar-alt text-xl mr-2"></i>
+                        <div>
+                            <div class="text-sm">Tanggal</div>
+                            <div class="bg-gray-200 px-2 py-1 rounded font-semibold">12-02-2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+                    <div class="mt-4">
+                        <label class="block text-gray-700 font-medium mb-2">Keterangan</label>
+                        <textarea class="w-full p-2 border rounded-md h-24 resize-none" placeholder="Tulis keterangan di sini..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

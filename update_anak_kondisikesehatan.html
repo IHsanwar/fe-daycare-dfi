@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
+<html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Anak</title>
-    <script src="https://kit.fontawesome.com/e16c014aae.js" crossorigin="anonymous"></script>
+    <title>Dashboard Anak</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -85,52 +83,23 @@
                     </div>
                 </div>
             </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5">
-                <a href="update_makan_cmlan.html" class="block bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">🍽</div>
-                    <div>Menu Makan & Camilan</div>
-                </a>
-                <a href="update_anak_buangair.html" class="block bg-blue-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-blue-600 transition w-full">
-                    <div class="text-2xl">🚽</div>
-                    <div>Buang Air Kecil & Besar</div>
-                </a>
-                <a href="update_anak_airputih_susu.html" class="block bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">🍼</div>
-                    <div>Air Putih & Susu</div>
-                </a>
-                <a href="update_anak_indooroutdoor.html" class="block bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">🏠</div>
-                    <div>Kegiatan Indoor & Outdoor</div>
-                </a>
-                <a href="update_anak_obat.html" class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">💊</div>
-                    <div>Obat</div>
-                </a>
-            
-                <a href="update_anak_tidur.html" class="bg-blue-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-blue-600 transition w-full">
-                    <div class="text-2xl">🛏</div>
-                    <div>Tidur</div>
-                </a>
-            
-                <a href="update_anak_kondisikesehatan.html" class="bg-indigo-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-indigo-600 transition w-full">
-                    <div class="text-2xl">❤</div>
-                    <div>Kondisi Kesehatan</div>
-                </a>
-            
-                <a href="update_anak_keterangan.html" class="bg-indigo-400 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-indigo-500 transition w-full">
-                    <div class="text-2xl">📝</div>
-                    <div>Keterangan</div>
-                </a>
+                    
+                    <div class="mt-4">
+                        <label class="block text-gray-700 font-medium mb-2">Kondisi Kesehatan</label>
+                        <div class="flex space-x-4">
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="health" value="sehat">
+                                <span class="ml-2">Sehat</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="health" value="sakit">
+                                <span class="ml-2">Sakit</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('-translate-x-full');
-        });
-    </script>
 </body>
 </html>

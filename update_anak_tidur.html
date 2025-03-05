@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Anak</title>
-    <script src="https://kit.fontawesome.com/e16c014aae.js" crossorigin="anonymous"></script>
+    <title>Update Status Anak</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif']
-                    },
-                    colors: {
-                        'purple-deep': '#4B0082',
-                        'purple-light': '#6A5ACD',
-                        'purple-dark': '#483D8B'
-                    }
+</head>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'poppins': ['Poppins', 'sans-serif']
+                },
+                colors: {
+                    'purple-deep': '#4B0082',
+                    'purple-light': '#6A5ACD',
+                    'purple-dark': '#483D8B'
                 }
             }
         }
-    </script>
+    }
+</script>
 </head>
 <body class="font-poppins bg-gray-100">
 <div class="flex flex-col md:flex-row min-h-screen relative">
@@ -85,52 +85,41 @@
                     </div>
                 </div>
             </div>
+                <!-- Status Input Sections -->
+                <div class="space-y-4">
+                    <!-- Tidur Section -->
+<div class="bg-gray-300 p-3 mb-1 rounded flex items-center">
+    <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+    </svg>
+    <span class="font-bold">Tidur</span>
+</div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5">
-                <a href="update_makan_cmlan.html" class="block bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">🍽</div>
-                    <div>Menu Makan & Camilan</div>
-                </a>
-                <a href="update_anak_buangair.html" class="block bg-blue-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-blue-600 transition w-full">
-                    <div class="text-2xl">🚽</div>
-                    <div>Buang Air Kecil & Besar</div>
-                </a>
-                <a href="update_anak_airputih_susu.html" class="block bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">🍼</div>
-                    <div>Air Putih & Susu</div>
-                </a>
-                <a href="update_anak_indooroutdoor.html" class="block bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">🏠</div>
-                    <div>Kegiatan Indoor & Outdoor</div>
-                </a>
-                <a href="update_anak_obat.html" class="bg-purple-700 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-purple-800 transition w-full">
-                    <div class="text-2xl">💊</div>
-                    <div>Obat</div>
-                </a>
-            
-                <a href="update_anak_tidur.html" class="bg-blue-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-blue-600 transition w-full">
-                    <div class="text-2xl">🛏</div>
-                    <div>Tidur</div>
-                </a>
-            
-                <a href="update_anak_kondisikesehatan.html" class="bg-indigo-500 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-indigo-600 transition w-full">
-                    <div class="text-2xl">❤</div>
-                    <div>Kondisi Kesehatan</div>
-                </a>
-            
-                <a href="update_anak_keterangan.html" class="bg-indigo-400 text-white p-4 rounded flex items-center gap-3 cursor-pointer hover:bg-indigo-500 transition w-full">
-                    <div class="text-2xl">📝</div>
-                    <div>Keterangan</div>
-                </a>
+<!-- Tidur Time Periods -->
+<div class="bg-white p-4 mb-4 flex justify-between items-center">
+    <!-- Pagi -->
+    <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
+        <span class="mr-2">Pagi</span>
+        <input type="text" placeholder="1x" class="w-16 text-center bg-white border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+    </div>
+
+    <!-- Siang -->
+    <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
+        <span class="mr-2">Siang</span>
+        <input type="text" placeholder="1x" class="w-16 text-center bg-white border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+    </div>
+
+    <!-- Malam -->
+    <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
+        <span class="mr-2">Malam</span>
+        <input type="text" placeholder="1x" class="w-16 text-center bg-white border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+    </div>
+</div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('-translate-x-full');
-        });
-    </script>
 </body>
 </html>

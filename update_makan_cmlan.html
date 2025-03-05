@@ -5,46 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Makan Cemilan</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
-            background-color: #f8f9fa;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    colors: {
+                        'purple-deep': '#4B0082',
+                        'purple-light': '#6A5ACD',
+                        'purple-dark': '#483D8B'
+                    }
+                }
+            }
         }
-        .sidebar {
-            background-color: #4a0082;
-            color: white;
-            height: 100vh;
-            width: 180px;
-            position: fixed;
-            left: 0;
-            top: 0;
-            padding: 20px;
-        }
-        .main-content {
-            margin-left: 200px;
-            padding: 20px 30px;
-        }
-        .section-header {
-            background-color: #e2e8f0;
-            border-radius: 6px;
-            padding: 12px 16px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-        .info-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 16px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
-    <div class="md:hidden fixed top-4 left-4 z-30">
+    </script>
+    </head>
+    <body class="font-poppins bg-gray-100">
+    <div class="flex flex-col md:flex-row min-h-screen relative">
+        <div class="md:hidden fixed top-4 left-4 z-30">
             <button id="menuToggle" class="bg-purple-deep text-white p-2 rounded-md">☰</button>
         </div>
-
+    
         <div id="sidebar" class="w-full md:w-64 bg-white md:h-screen p-5 fixed md:relative z-20 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
             <div class="bg-purple-deep text-white p-5 mb-5 h-24 flex items-center rounded">
                 <h2 class="text-xl font-semibold">Dashboard Anak</h2>
@@ -56,47 +39,149 @@
             </div>
             <button class="p-2.5 text-white bg-red-700 mt-4 hover:text-black hover:bg-red-300 w-full text-center">Logout</button>
         </div>
-
-        <div class="flex-1 p-4 md:p-5 pt-16 md:pt-5">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
-                <h2 class="text-xl font-semibold">Data Anak</h2>
-                <input type="text" placeholder="Cari nama anak..." class="p-2 border border-gray-300 rounded w-full md:w-52">
+        <!-- Main Content -->
+        <div class="flex-1">
+            <!-- Header -->
+            <div class="bg-gray-300 p-3 shadow">
+                <div class="flex items-center">
+                    <i class="fas fa-edit mr-2"></i>
+                    <span class="font-bold">Update status anak</span>
+                </div>
             </div>
-    <div class="main-content">
-        <div class="section-header flex items-center">
-            <span class="mr-2">👶</span>
-            <span class="font-bold text-lg">Update Status Anak</span>
-        </div>
-        <div class="info-card">
-            <p><strong>Nama Anak:</strong> Faris</p>
-            <p><strong>Tanggal:</strong> 12-02-2025</p>
-            <p><strong>Pendamping:</strong> Erisia O'helly</p>
-        </div>
-        <div class="section-header flex items-center">
-            <span class="mr-2">🍽️</span>
-            <span class="font-bold text-lg">Porsi Makan</span>
-        </div>
-        <div class="info-card">
-            <p class="font-semibold">Pagi</p>
-            <label><input type="radio" name="pagi" value="1"> 1 Porsi</label>
-            <label><input type="radio" name="pagi" value="1/2"> 1/2 Porsi</label>
-            <label><input type="radio" name="pagi" value="1/3"> 1/3 Porsi</label>
-            <label><input type="radio" name="pagi" value="1/4"> 1/4 Porsi</label>
-        </div>
-        <div class="section-header flex items-center">
-            <span class="mr-2">🍽️</span>
-            <span class="font-bold text-lg">Menu Makan & Camilan</span>
-        </div>
-        <div class="info-card">
-            <p class="font-semibold">Pagi</p>
-            <div class="grid grid-cols-2 gap-2">
-                <input type="text" placeholder="Menu 1" class="border p-2 rounded">
-                <input type="text" placeholder="Menu 2" class="border p-2 rounded">
-                <input type="text" placeholder="Menu 3" class="border p-2 rounded">
-                <input type="text" placeholder="Menu 4" class="border p-2 rounded">
-                <input type="text" placeholder="Menu 5" class="border p-2 rounded">
-                <input type="text" placeholder="Menu 6" class="border p-2 rounded">
-                <input type="text" placeholder="Menu 7" class="border p-2 rounded">
+            
+            <!-- Child Info -->
+            <div class="p-4">
+                <div class="bg-white p-4 mb-4 rounded">
+                    <div class="flex justify-between">
+                        <!-- Left: Child and companion info -->
+                        <div>
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-child bg-black text-white p-2 rounded-full mr-3"></i>
+                                <div>
+                                    <div class="text-sm">Nama Anak</div>
+                                    <div class="font-semibold">Faris</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-user bg-black text-white p-2 rounded-full mr-3"></i>
+                                <div>
+                                    <div class="text-sm">Nama Pendamping</div>
+                                    <div class="font-semibold">Erisia Chelly</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right: Date -->
+                        <div>
+                            <div class="flex items-center">
+                                <i class="far fa-calendar-alt text-xl mr-2"></i>
+                                <div>
+                                    <div class="text-sm">Tanggal</div>
+                                    <div class="bg-gray-200 px-2 py-1 rounded font-semibold">12-02-2025</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>     
+                <!-- Porsi Makan -->
+                <div class="section-header flex items-center mt-4">
+                    <span class="mr-2">🍽</span>
+                    <span class="font-bold text-lg">Porsi Makan</span>
+                </div>
+                <div class="info-card p-4 bg-white shadow rounded mt-2">
+                    <p class="font-semibold mb-2">Pagi</p>
+                    <div class="flex space-x-6">
+                        <label class="flex items-center">
+                            <input type="radio" name="pagi" value="1" class="mr-2"> 1 Porsi
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="pagi" value="1/2" class="mr-2"> 1/2 Porsi
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="pagi" value="1/3" class="mr-2"> 1/3 Porsi
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="pagi" value="1/4" class="mr-2"> 1/4 Porsi
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="info-card p-4 bg-white shadow rounded mt-2">
+                    <p class="font-semibold mb-2">Siang</p>
+                    <div class="flex space-x-6">
+                        <label class="flex items-center">
+                            <input type="radio" name="siang" value="1" class="mr-2"> 1 Porsi
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="siang" value="1/2" class="mr-2"> 1/2 Porsi
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="siang" value="1/3" class="mr-2"> 1/3 Porsi
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="siang" value="1/4" class="mr-2"> 1/4 Porsi
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="info-card p-4 bg-white shadow rounded mt-2">
+                    <p class="font-semibold mb-2">Sore</p>
+                    <div class="flex space-x-6">
+                        <label class="flex items-center">
+                            <input type="radio" name="sore" value="1" class="mr-2"> 1 Porsi
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="sore" value="1/2" class="mr-2"> 1/2 Porsi
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="sore" value="1/3" class="mr-2"> 1/3 Porsi
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="sore" value="1/4" class="mr-2"> 1/4 Porsi
+                        </label>
+                    </div>
+                </div>
+                
+                
+
+                <!-- Menu Makan & Camilan -->
+                <div class="section-header flex items-center mt-4">
+                    <span class="mr-2">🍽</span>
+                    <span class="font-bold text-lg">Menu Makan & Camilan</span>
+                </div>
+                <div class="info-card p-4 bg-white shadow rounded mt-2">
+                    <div class="grid gap-4">
+                        <!-- Pagi -->
+                        <div>
+                            <p class="font-semibold mb-2">Pagi</p>
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="text" placeholder="Menu 1" class="border p-2 rounded">
+                                <input type="text" placeholder="Menu 2" class="border p-2 rounded">
+                            </div>
+                        </div>
+                
+                        <!-- Siang -->
+                        <div>
+                            <p class="font-semibold mb-2">Siang</p>
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="text" placeholder="Menu 1" class="border p-2 rounded">
+                                <input type="text" placeholder="Menu 2" class="border p-2 rounded">
+                            </div>
+                        </div>
+                
+                        <!-- Sore -->
+                        <div>
+                            <p class="font-semibold mb-2">Sore</p>
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="text" placeholder="Menu 1" class="border p-2 rounded">
+                                <input type="text" placeholder="Menu 2" class="border p-2 rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
             </div>
         </div>
     </div>

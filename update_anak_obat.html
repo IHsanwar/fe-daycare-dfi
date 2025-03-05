@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Anak</title>
+    <title>Update Status Anak</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <script>
     tailwind.config = {
@@ -41,12 +40,6 @@
         </div>
         <button class="p-2.5 text-white bg-red-700 mt-4 hover:text-black hover:bg-red-300 w-full text-center">Logout</button>
     </div>
-
-    <div class="flex-1 p-4 md:p-5 pt-16 md:pt-5">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
-            <h2 class="text-xl font-semibold">Data Anak</h2>
-            <input type="text" placeholder="Cari nama anak..." class="p-2 border border-gray-300 rounded w-full md:w-52">
-        </div>
     <!-- Main Content -->
     <div class="flex-1">
         <!-- Header -->
@@ -92,64 +85,28 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Air Putih Section -->
-            <div class="bg-gray-300 p-3 mb-1 rounded flex items-center">
-                <i class="fas fa-tint mr-2"></i>
-                <span class="font-bold">Air putih</span>
-            </div>
-            
-            <!-- Air Putih Time Periods -->
-            <div class="bg-white p-4 mb-4 flex justify-between items-center">
-                <!-- Morning -->
-                <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
-                    <i class="fas fa-sun text-yellow-500 text-xl mr-2"></i>
-                    <span class="mr-2">Pagi</span>
-                    <span class="bg-white px-2 py-1 rounded border border-gray-300">100 ml</span>
-                </div>
-                
-                <!-- Afternoon -->
-                <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
-                    <i class="fas fa-cloud text-gray-500 text-xl mr-2"></i>
-                    <span class="mr-2">Siang</span>
-                    <span class="bg-white px-2 py-1 rounded border border-gray-300">100 ml</span>
-                </div>
-                
-                <!-- Evening -->
-                <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
-                    <i class="fas fa-moon text-gray-700 text-xl mr-2"></i>
-                    <span class="mr-2">Sore</span>
-                    <span class="bg-white px-2 py-1 rounded border border-gray-300">100 ml</span>
-                </div>
-            </div>
-            
-            <!-- Susu Section -->
-            <div class="bg-gray-300 p-3 mb-1 rounded flex items-center">
-                <i class="fas fa-baby-bottle mr-2"></i>
-                <span class="font-bold">Susu</span>
-            </div>
-            
-            <!-- Susu Time Periods -->
-            <div class="bg-white p-4 flex justify-between items-center">
-                <!-- Morning -->
-                <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
-                    <i class="fas fa-sun text-yellow-500 text-xl mr-2"></i>
-                    <span class="mr-2">Pagi</span>
-                    <span class="bg-white px-2 py-1 rounded border border-gray-300">100 ml</span>
-                </div>
-                
-                <!-- Afternoon -->
-                <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
-                    <i class="fas fa-cloud text-gray-500 text-xl mr-2"></i>
-                    <span class="mr-2">Siang</span>
-                    <span class="bg-white px-2 py-1 rounded border border-gray-300">100 ml</span>
-                </div>
-                
-                <!-- Evening -->
-                <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
-                    <i class="fas fa-moon text-gray-700 text-xl mr-2"></i>
-                    <span class="mr-2">Sore</span>
-                    <span class="bg-white px-2 py-1 rounded border border-gray-300">100 ml</span>
+                <div class="mt-6">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-6 h-6 mr-2 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5 8.11V14a1 1 0 00.553.894l4 2A1 1 0 0010 16V8.11l2.394-1.181a1 1 0 000-1.84l-7-3z"/>
+                        </svg>
+                        <span class="font-semibold">Obat</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div class="bg-gray-100 p-3 rounded">
+                            <div class="font-bold text-yellow-600">Pagi</div>
+                            <input type="time" class="w-full text-center text-gray-600 bg-transparent border-none focus:outline-none" placeholder="HH:MM">
+                        </div>
+                        <div class="bg-gray-100 p-3 rounded">
+                            <div class="font-bold text-orange-600">Siang</div>
+                            <input type="time" class="w-full text-center text-gray-600 bg-transparent border-none focus:outline-none" placeholder="HH:MM">
+                        </div>
+                        <div class="bg-gray-100 p-3 rounded">
+                            <div class="font-bold text-purple-600">Malam</div>
+                            <input type="time" class="w-full text-center text-gray-600 bg-transparent border-none focus:outline-none" placeholder="HH:MM">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
