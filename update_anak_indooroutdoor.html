@@ -41,13 +41,6 @@
         </div>
         <button class="p-2.5 text-white bg-red-700 mt-4 hover:text-black hover:bg-red-300 w-full text-center">Logout</button>
     </div>
-
-    <div class="flex-1 p-4 md:p-5 pt-16 md:pt-5">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
-            <h2 class="text-xl font-semibold">Data Anak</h2>
-            <input type="text" placeholder="Cari nama anak..." class="p-2 border border-gray-300 rounded w-full md:w-52">
-        </div>
-    
     <!-- Main Content -->
     <div class="flex-1">
         <!-- Header -->
@@ -138,10 +131,13 @@
                         <input type="checkbox" class="mr-2 h-4 w-4">
                         <label>Ke paud</label>
                     </div>
-                    <div class="flex items-center">
-                        <input type="checkbox" class="mr-2 h-4 w-4">
-                        <label>Lainnya</label>
+                    <div class="flex items-center lainnya-container">
+                        <input type="checkbox" class="lainnyaCheckbox mr-2 h-4 w-4">
+                        <label class="lainnyaLabel cursor-text">Lainnya</label>
+                        <input type="text" class="lainnyaInput hidden border rounded p-1 w-24" placeholder="Isi lainnya...">
                     </div>
+                        
+                    
                 </div>
             </div>
             
@@ -181,13 +177,51 @@
                         <input type="checkbox" class="mr-2 h-4 w-4">
                         <label>Main air/busa</label>
                     </div>
-                    <div class="flex items-center">
-                        <input type="checkbox" class="mr-2 h-4 w-4">
-                        <label>Lainnya</label>
+                    <div class="flex items-center lainnya-container">
+                        <input type="checkbox" class="lainnyaCheckbox mr-2 h-4 w-4">
+                        <label class="lainnyaLabel cursor-text">Lainnya</label>
+                        <input type="text" class="lainnyaInput hidden border rounded p-1 w-24" placeholder="Isi lainnya...">
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
+    <script>
+    
+    
+
+    document.querySelectorAll(".lainnya-container").forEach(container => {
+    const checkbox = container.querySelector(".lainnyaCheckbox");
+    const label = container.querySelector(".lainnyaLabel");
+    const input = container.querySelector(".lainnyaInput");
+
+    checkbox.addEventListener("change", function() {
+        if (this.checked) {
+            label.classList.add("hidden");
+            input.classList.remove("hidden");
+            input.focus();
+        } else {
+            input.classList.add("hidden");
+            label.classList.remove("hidden");
+            input.value = ""; // Clear input
+        }
+    });
+
+});
+    
+
+
+
+    document.getElementById("menuToggle").addEventListener("click", function() {
+            const sidebar = document.getElementById("sidebar");
+            if (sidebar.classList.contains("-translate-x-full")) {
+                sidebar.classList.remove("-translate-x-full");
+            } else {
+                sidebar.classList.add("-translate-x-full");
+            }
+        });
+
+    </script>
 </body>
 </html>
