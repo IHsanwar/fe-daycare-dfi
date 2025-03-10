@@ -43,8 +43,7 @@
             </div>
     
             <!-- Sidebar -->
-            <div id="sidebar" class="w-full md:w-64 bg-white md:h-screen fixed md:relative z-20 -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out shadow-lg absolute
-            no-scrollbar">
+            <div id="sidebar" class="w-full md:w-64 bg-white h-screen fixed md:sticky top-0 z-20 -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out shadow-lg no-scrollbar flex flex-col">
                 <div class="p-4 flex items-center">
                     <div class="h-10 w-10 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 flex items-center justify-center text-white mr-3">
                         <i class="fas fa-child"></i>
@@ -52,7 +51,7 @@
                     <h2 class="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 text-transparent bg-clip-text">Dashboard Anak</h2>
                 </div>
                 
-                <div class="px-4 py-2">
+                <div class="sidebar-content px-4 py-2 flex-grow overflow-y-auto">
                     <button class="w-full mb-3 p-2.5 text-left font-medium bg-purple-100 text-purple-800 rounded-lg flex items-center transition-all hover:bg-purple-200">
                         <i class="fas fa-tachometer-alt mr-3 text-purple-600"></i>
                         Dashboard User
@@ -72,14 +71,17 @@
                     </div>
                 </div>
                 
-                <div class="bottom-0 left-0 right-0 p-4">
+                <div class="p-4 mt-auto">
                     <button class="w-full p-2.5 text-white bg-gradient-to-r from-red-500 to-red-700 rounded-lg flex items-center justify-center transition-all hover:shadow-lg">
                         <i class="fas fa-sign-out-alt mr-2"></i>
                         Logout
                     </button>
                 </div>
             </div>
+
+            
         <!-- Main Content -->
+         
         <div class="flex-1">
             <!-- Header -->
             <div class="bg-white p-3 shadow-sm sticky top-0 z-10">
@@ -131,11 +133,9 @@
         <!-- Buang Air Kecil -->
         <div class="section-header flex items-center mt-6">
             <span class="mr-2 text-black">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16a2 2 0 012 2v1.5a2 2 0 002 2 2 2 0 012 2v1.5a2 2 0 002 2 2 2 0 012 2v1.5a2 2 0 002 2 2 2 0 012 2v4m-6-6h.01M6 7h.01M18 7h.01M12 7h.01M12 12h.01M12 17h.01" />
-                </svg>
+                <i class="fa-solid fa-toilet" style="color: #8457ff;"></i>
             </span>
-            <span class="font-bold text-black-400">Buang Air Kecil</span>
+            <span class="font-bold text-purple-500">Buang Air Kecil</span>
         </div>
         <div class="info-card p-6 bg-white shadow-lg rounded-lg mt-4">
             <div class="flex justify-between items-center">
@@ -177,11 +177,9 @@
         <!-- Buang Air Besar -->
         <div class="section-header flex items-center mt-8">
             <span class="mr-2 text-black">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
+                <i class="fa-solid fa-poop" style="color: #8457ff;"></i>
             </span>
-            <span class="font-bold text-black-400">Buang Air Besar</span>
+            <span class="font-bold text-purple-500">Buang Air Besar</span>
         </div>
         <div class="info-card p-6 bg-white shadow-lg rounded-lg mt-4">
             <div class="flex justify-between items-center">
