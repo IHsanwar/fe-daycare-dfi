@@ -3,77 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Anak</title> 
+    <title>Dashboard User</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e16c014aae.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif']
+                        'inter': ['Inter', 'sans-serif']
                     },
                     colors: {
-                        'purple-deep': '#4B0082',
-                        'purple-light': '#6A5ACD',
-                        'purple-dark': '#483D8B'
+                        'purple': {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95'
+                        }
                     }
                 }
             }
         }
     </script>
-    <script>
-    function goToUserDashboard() {
-        window.location.href = "dashboard_utama.html"; // Redirect ke halaman user
-    }
-</script>
-    
 </head>
-<body class="font-poppins bg-gray-100">
+<body class="font-inter bg-gray-50 text-gray-800 overflow-x-hidden">
     <div class="flex flex-col md:flex-row min-h-screen relative">
-        <div class="md:hidden fixed top-4 left-4 z-30">
-            <button id="menuToggle" class="bg-purple-deep text-white p-2 rounded-md">☰</button>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden fixed top-4 right-4 z-30">
+            <button id="menuToggle" class="bg-white text-purple-600 p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
 
-        <div id="sidebar" class="w-full md:w-64 bg-white md:h-screen p-5 fixed md:relative z-20 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
-            <div class="bg-purple-deep text-white p-5 mb-5 h-24 flex items-center rounded">
-                <h2 class="text-xl font-semibold">Dashboard Anak</h2>
-            </div>
-            <div class="flex flex-col gap-4">
-                <button class="p-2.5 text-xl bg-purple-400 text-white rounded hover:bg-black" onclick="goToUserDashboard()">Dashboard Admin</button>
-                <button class="p-2.5 bg-gray-100 rounded hover:bg-gray-200">Menu Item 1</button>
-                <button class="p-2.5 bg-gray-100 rounded hover:bg-gray-200">Menu Item 2</button>
-            </div>
-            <button class="p-2.5 text-white bg-red-700 mt-4 hover:text-black hover:bg-red-300 w-full text-center">Logout</button>
-        </div>
+        <!-- Sidebar Overlay -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-10 hidden" onclick="closeSidebar()"></div>
 
-        <div class="flex-1 p-4 md:p-5 pt-16 md:pt-5">
+        <!-- Sidebar -->
+        <div id="sidebar" class="w-full md:w-64 bg-white h-screen fixed md:sticky top-0 z-20 -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out shadow-lg no-scrollbar flex flex-col">
+            <div class="p-4 flex items-center">
+                <div class="h-10 w-10 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 flex items-center justify-center text-white mr-3">
+                    <i class="fas fa-child"></i>
+                </div>
+                <h2 class="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 text-transparent bg-clip-text">Dashboard User</h2>
+            </div>
+            
+            <div class="sidebar-content px-4 py-2 flex-grow overflow-y-auto">
+                <button class="w-full mb-3 p-2.5 text-left font-medium bg-purple-100 text-purple-800 rounded-lg flex items-center transition-all hover:bg-purple-200">
+                    <i class="fas fa-tachometer-alt mr-3 text-purple-600"></i>
+                    Dashboard User
+                </button>
+                
+                <div class="text-gray-400 uppercase text-xs font-bold mt-3 mb-2 px-2">Menu</div>
+                
+                <div class="space-y-1">
+                    <a href="/dashboard_anak.html" class="w-full p-2.5 text-left font-medium text-gray-600 rounded-lg flex items-center transition-all hover:bg-purple-50">
+                        <i class="fas fa-chart-pie mr-3 text-purple-500"></i>
+                        Dashboard Anak
+                    </a>                    
+                    <button class="w-full p-2.5 text-left font-medium text-gray-600 rounded-lg flex items-center transition-all hover:bg-purple-50">
+                        <i class="fas fa-calendar-alt mr-3 text-purple-500"></i>
+                        Dashboard User
+                    </button>
+                </div>
+            </div>
+            
+            <div class="bottom-0 left-0 right-0 p-4">
+                <button class="w-full p-2.5 text-white bg-gradient-to-r from-red-500 to-red-700 rounded-lg flex items-center justify-center transition-all hover:shadow-lg">
+                    <i class="fas fa-sign-out-alt mr-2"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+        
+          <!-- Main Content -->
+          <div class="flex-1 p-4 md:p-5 pt-16 md:pt-5">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
                 <h2 class="text-xl font-semibold">Data Pengguna</h2>
-                <input type="text" placeholder="Cari nama anak..." class="p-2 border border-gray-300 rounded w-full md:w-52">
+                <input type="text" placeholder="Cari username..." class="p-2 border border-gray-300 rounded w-full md:w-52 border border-purple-300 text-purple-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
             </div>
 
             <div class="overflow-x-auto bg-white rounded-lg shadow">
                 <table class="w-full border-collapse">
                     <thead>
                         <tr class="bg-gray-100">
-                            <th class="p-3 text-left">Nama Anak</th>
-                            <th class="p-3 text-left">Nama Orang tua</th>
-                            <th class="p-3 text-left">Tanggal</th>
-                            <th class="p-3 text-left">Status</th>
+                            <th class="p-3 text-left">Username</th>
+                            <th class="p-3 text-left">Email</th>                            
+                            <th class="p-3 text-left">Role</th>
                             <th class="p-3 text-left">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="border-b border-gray-100">
-                            <td class="p-3">Haikal</td>
-                            <td class="p-3">Ibu Jane Doe</td>
-                            <td class="p-3">10 Feb 2025</td>
+                            <td class="p-3">Faris</td>
+                            <td class="p-3">faris13@gmail.com</td>
                             <td class="p-3">
-                                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">belum lengkap</span>
+                                <span class="bg-pink-500 text-white px-2 py-1 rounded text-xs">Admin</span>
                             </td>
                             <td class="p-3 flex gap-2">
-                                <button class="px-3 py-1.5 bg-purple-dark text-white text-xs rounded hover:bg-opacity-90" onclick="openEditModal()">Edit</button>
-                                <button class="px-3 py-1.5 bg-red-400 text-white text-xs rounded hover:bg-opacity-90" onclick="openDeleteModal()">Hapus</button>
+                                <button class="px-3 py-1.5 bg-purple-400 text-white text-xs rounded hover:bg-purple-500" onclick="openEditModal()">Edit</button>
+                                <button class="px-3 py-1.5 bg-red-500 text-white text-xs rounded hover:bg-red-600" onclick="openDeleteModal()">Hapus</button>                                
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr class="border-b border-gray-100">
+                            <td class="p-3">Farhan</td>
+                            <td class="p-3">farhan12@gmail.com</td>
+                            <td class="p-3">
+                                <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">User</span>
+                            </td>
+                            <td class="p-3 flex gap-2">
+                                <button class="px-3 py-1.5 bg-purple-400 text-white text-xs rounded hover:bg-purple-500" onclick="openEditModal()">Edit</button>
+                                <button class="px-3 py-1.5 bg-red-500 text-white text-xs rounded hover:bg-red-600" onclick="openDeleteModal()">Hapus</button>                                
                             </td>
                         </tr>
                     </tbody>
@@ -89,16 +137,29 @@
     <div id="editModal" class="fixed inset-0 hidden bg-black bg-opacity-50 items-center justify-center z-50 p-4">
         <div class="bg-white p-5 w-11/12 max-w-lg shadow-lg rounded-lg text-left relative max-h-90vh overflow-y-auto">
             <button class="absolute top-2 right-3 text-xl cursor-pointer bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="closeEditModal()">×</button>
-            <h2 class="text-lg font-bold mb-3">Edit Data Anak</h2>
+            <h2 class="text-lg font-bold mb-3">Edit Data Pengguna</h2>
             <form>
-                <label class="block mb-2">Nama Anak:</label>
-                <input type="text" class="w-full p-2 border rounded mb-3">
-                <label class="block mb-2">Nama Orang Tua:</label>
-                <input type="text" class="w-full p-2 border rounded mb-3">
-                <label class="block mb-2">Tanggal:</label>
-                <input type="date" class="w-full p-2 border rounded mb-3">
-                <button type="submit" class="bg-purple-deep text-white px-4 py-2 rounded">Simpan</button>
+                <label for="username" class="block mb-2">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Masukkan username" class="w-full p-2 border rounded mb-3">
+            
+                <label for="email" class="block mb-2">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email" class="w-full p-2 border rounded mb-3">
+            
+                <label for="password" class="block mb-2">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password" class="w-full p-2 border rounded mb-3">
+            
+                <label for="role" class="block mb-2">Role:</label>
+                <select id="role" name="role" class="w-full p-2 border rounded mb-3">
+                    <option value="" disabled selected>Pilih role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+            
+                <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded">
+                    Simpan
+                </button>
             </form>
+            
         </div>
     </div>
 
@@ -116,6 +177,9 @@
     </div>
 
     <script>
+    function goToUserDashboard() {
+        window.location.href = "dashboard_utama.html"; // Redirect ke halaman user
+    }     
         function openModal() {
             document.getElementById("infoModal").classList.remove("hidden");
             document.getElementById("infoModal").classList.add("flex");

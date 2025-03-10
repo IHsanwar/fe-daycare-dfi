@@ -46,42 +46,54 @@
         <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-10 hidden" onclick="closeSidebar()"></div>
 
         <!-- Sidebar -->
-        <div id="sidebar" class="w-full md:w-64 bg-white md:h-screen fixed md:relative z-20 -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out shadow-lg absolute no-scrollbar">
+        <div id="sidebar" class="w-full md:w-64 bg-white h-screen fixed md:sticky top-0 z-20 -translate-x-full md:translate-x-0 transition-all duration-300 ease-in-out shadow-lg no-scrollbar flex flex-col">
+    
+            <!-- Header Sidebar -->
             <div class="p-4 flex items-center">
                 <div class="h-10 w-10 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 flex items-center justify-center text-white mr-3">
                     <i class="fas fa-child"></i>
                 </div>
-                <h2 class="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 text-transparent bg-clip-text">Dashboard Anak</h2>
+                <h2 class="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 text-transparent bg-clip-text">
+                    Dashboard Anak
+                </h2>
             </div>
-            
-            <div class="px-4 py-2">
-                <button class="w-full mb-3 p-2.5 text-left font-medium bg-purple-100 text-purple-800 rounded-lg flex items-center transition-all hover:bg-purple-200">
+        
+            <!-- Konten Menu Sidebar -->
+            <div class="sidebar-content px-4 py-2 flex-grow overflow-y-auto space-y-1">
+                
+                <!-- Dashboard Anak -->
+                <a href="/dashboard_anak.html" class="w-full p-2.5 text-left font-medium bg-purple-100 text-purple-800 rounded-lg flex items-center transition-all hover:bg-purple-200">
                     <i class="fas fa-tachometer-alt mr-3 text-purple-600"></i>
                     Dashboard Anak
-                </button>
-                
+                </a>
+        
+                <!-- Judul Menu -->
                 <div class="text-gray-400 uppercase text-xs font-bold mt-3 mb-2 px-2">Menu</div>
-                
-                <div class="space-y-1">
-                    <button class="w-full p-2.5 text-left font-medium text-gray-600 rounded-lg flex items-center transition-all hover:bg-purple-50">
-                        <i class="fas fa-chart-pie mr-3 text-purple-500"></i>
-                        Dashboard Anak
-                    </button>
-                    <button class="w-full p-2.5 text-left font-medium text-gray-600 rounded-lg flex items-center transition-all hover:bg-purple-50">
-                        <i class="fas fa-calendar-alt mr-3 text-purple-500"></i>
-                        Dashboard User
-                    </button>
-                </div>
+                      
+                <!-- Dashboard User -->
+                <a href="/dashboard_user.html" class="w-full p-2.5 text-left font-medium text-gray-600 rounded-lg flex items-center transition-all hover:bg-purple-50">
+                    <i class="fas fa-chart-pie mr-3 text-purple-500"></i>
+                    Dashboard User
+                </a>
+
+                <!-- Dashboard Anak -->
+                <a href="/dashboard_anak.html" class="w-full p-2.5 text-left font-medium text-gray-600 rounded-lg flex items-center transition-all hover:bg-purple-50">
+                    <i class="fas fa-calendar-alt mr-3 text-purple-500"></i>
+                    Dashboard Anak
+                </a>
+        
             </div>
-            
-            <div class="bottom-0 left-0 right-0 p-4">
+        
+            <!-- Tombol Logout -->
+            <div class="p-4">
                 <button class="w-full p-2.5 text-white bg-gradient-to-r from-red-500 to-red-700 rounded-lg flex items-center justify-center transition-all hover:shadow-lg">
                     <i class="fas fa-sign-out-alt mr-2"></i>
                     Logout
                 </button>
             </div>
+        
         </div>
-
+        
         <!-- Main Content -->
         <div class="flex-1 p-4 md:p-5 pt-16 md:pt-5">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
@@ -141,7 +153,9 @@
                 <li class="py-2"><strong>Tidur:</strong> 2× pagi, 1× siang, 1× sore</li>
                 <li class="py-2 border-b border-gray-200"><strong>Catatan:</strong> <i class="bg-gray-200 p-2 rounded-md"> Catatan disini panjang sekali bayangkan jika... </i></li>
                 <li>
-                <button type="submit" class="bg-purple-deep text-white px-4 py-2 rounded mt-4 hover:bg-opacity-70">Download Data</button></li>
+                    <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded mt-4 hover:bg-purple-700">
+                        Download Data
+                    </button>                    
             </ul>
         </div>
     </div>
@@ -151,18 +165,21 @@
         <div class="bg-white p-5 w-11/12 max-w-lg shadow-lg rounded-lg text-left relative max-h-90vh overflow-y-auto">
             <button class="absolute top-2 right-3 text-xl cursor-pointer bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center" onclick="closeEditModal()">×</button>
             <h2 class="text-lg font-bold mb-3">Edit Data Anak</h2>
-            <form>
+            <form id="editForm" class="relative pb-16">
                 <label class="block mb-2">Nama Anak:</label>
-                <input type="text" class="w-full p-2 border rounded mb-3">
+                <input type="text" id="namaAnak" class="w-full p-2 border rounded mb-3">
                 <label class="block mb-2">Nama Orang Tua:</label>
-                <input type="text" class="w-full p-2 border rounded mb-3">
+                <input type="text" id="namaOrtu" class="w-full p-2 border rounded mb-3">
                 <label class="block mb-2">Tanggal:</label>
-                <input type="date" class="w-full p-2 border rounded mb-3">
-                <button type="submit" class="bg-purple-deep text-white px-4 py-2 rounded">Simpan</button>
+                <input type="date" id="tanggal" class="w-full p-2 border rounded mb-3">
+                
+                <!-- Tombol Simpan di Kanan Bawah -->
+                <button type="submit" class="absolute bottom-4 right-4 bg-purple-600 text-white px-4 py-2 rounded shadow-lg hover:bg-purple-700 transition">
+                    Simpan
+                </button>
             </form>
         </div>
     </div>
-
     <!-- Modal Konfirmasi Penghapusan -->
     <div id="deleteModal" class="fixed inset-0 hidden bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
         <div class="bg-white p-5 w-11/12 max-w-lg shadow-lg rounded-lg text-left relative">

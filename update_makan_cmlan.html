@@ -71,24 +71,28 @@
             <div class="sidebar-content px-4 py-2 flex-grow overflow-y-auto">
                 <button class="w-full mb-3 p-2.5 text-left font-medium bg-purple-100 text-purple-800 rounded-lg flex items-center transition-all hover:bg-purple-200">
                     <i class="fas fa-tachometer-alt mr-3 text-purple-600"></i>
-                    Dashboard User
+                    Dashboard Anak
                 </button>
                 
                 <div class="text-gray-400 uppercase text-xs font-bold mt-3 mb-2 px-2">Menu</div>
                 
                 <div class="space-y-1">
-                    <button class="w-full p-2.5 text-left font-medium text-gray-600 rounded-lg flex items-center transition-all hover:bg-purple-50">
-                        <i class="fas fa-chart-pie mr-3 text-purple-500"></i>
-                        Menu Item 1
-                    </button>
-                    <button class="w-full p-2.5 text-left font-medium text-gray-600 rounded-lg flex items-center transition-all hover:bg-purple-50">
-                        <i class="fas fa-calendar-alt mr-3 text-purple-500"></i>
-                        Menu Item 2
-                    </button>
+                    <button onclick="window.location.href='/update_anak.html'"
+                    class="w-full p-2.5 text-left font-medium text-gray-600 rounded-lg flex items-center transition-all hover:bg-purple-50">
+                    <i class="fas fa-circle-arrow-left mr-3 text-purple-500"></i>
+                    Kembali
+                </button>
+                
+                <button onclick="window.location.href='/dashboard_anak.html'" 
+                class="w-full p-2.5 text-left font-medium text-gray-600 rounded-lg flex items-center transition-all hover:bg-purple-50">
+                <i class="fas fa-user mr-3 text-purple-500"></i>
+                Dashboard Anak
+                  </button>
+            
                 </div>
             </div>
             
-            <div class="p-4 mt-auto">
+            <div class="bottom-0 left-0 right-0 p-4">
                 <button class="w-full p-2.5 text-white bg-gradient-to-r from-red-500 to-red-700 rounded-lg flex items-center justify-center transition-all hover:shadow-lg">
                     <i class="fas fa-sign-out-alt mr-2"></i>
                     Logout
