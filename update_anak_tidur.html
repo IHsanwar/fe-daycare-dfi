@@ -135,31 +135,48 @@
                 <!-- Status Input Sections -->
                 <div class="space-y-4">
                     <!-- Tidur Section -->
-<div class="bg-gray-300 p-3 mb-1 rounded flex items-center">
-    <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
-    </svg>
-    <span class="font-bold">Tidur</span>
-</div>
 
 <!-- Tidur Time Periods -->
-<div class="bg-white p-4 mb-4 flex justify-between items-center">
-    <!-- Pagi -->
-    <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
-        <span class="mr-2">Pagi</span>
-        <input type="text" placeholder="1x" class="w-16 text-center bg-white border border-gray-300 rounded focus:outline-none focus:border-blue-500">
-    </div>
-
-    <!-- Siang -->
-    <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
-        <span class="mr-2">Siang</span>
-        <input type="text" placeholder="1x" class="w-16 text-center bg-white border border-gray-300 rounded focus:outline-none focus:border-blue-500">
-    </div>
-
-    <!-- Malam -->
-    <div class="flex items-center bg-gray-100 px-4 py-2 rounded">
-        <span class="mr-2">Malam</span>
-        <input type="text" placeholder="1x" class="w-16 text-center bg-white border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+<div class="section-header flex items-center mt-6">
+    <span class="mr-2 text-black">
+        <i class="fa-solid fa-toilet" style="color: #8457ff;"></i>
+    </span>
+    <span class="font-bold text-purple-500">Tidur</span>
+</div>
+<div class="info-card p-6 bg-white shadow-lg rounded-lg mt-4">
+    <div class="flex justify-between items-center">
+        <!-- Pagi -->
+        <div class="flex items-center">
+            <span class="text-black mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+            </span>
+            <span class="mr-2 text-black">Pagi</span>
+            <input type="text" class="w-12 text-center border border-gray-300 rounded mx-1 focus:ring-2 focus:ring-gray-500 text-black">
+        </div>
+        
+        <!-- Siang -->
+        <div class="flex items-center">
+            <span class="text-black mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+            </span>
+            <span class="mr-2 text-black">Siang</span>
+            <input type="text" class="w-12 text-center border border-gray-300 rounded mx-1 focus:ring-2 focus:ring-gray-500 text-black">
+        </div>
+        
+        <!-- Sore -->
+        <div class="flex items-center">
+            <span class="text-black mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </span>
+            <span class="mr-2 text-black">Sore</span>
+            <input type="text"  class="w-12 text-center border border-gray-300 rounded mx-1 focus:ring-2 focus:ring-gray-500 text-black">
+        </div>
     </div>
 </div>
                 </div>
